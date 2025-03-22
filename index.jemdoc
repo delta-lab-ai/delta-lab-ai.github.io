@@ -36,7 +36,7 @@ PI: Wuyang Chen, Assistant Professor (wuyang at sfu dot ca)\n
 
 
 
-1. We *build AI methods for scientific problems*.
+1. We *integrate AI methods with physical knowledge*.
 
 a) We build LLM for autoformalization, program synthesis, and reasoning on PDE control problems \[[https://arxiv.org/abs/2502.00963 _1_]];
 
@@ -71,22 +71,23 @@ For Ph.D. applicants, please apply to the [https://www.sfu.ca/fas/study/future-g
 == News
 
 
-# \[3/2025\]\n
-# Yingheng SIAM CSE25: Advancing Science with AI: Neuromorphic Systems and ML Algorithmic Innovations
-# https://www.siam.org/conferences-events/siam-conferences/cse25/
-# talk title and presenter name by Friday, August 2. Abstracts are due to the conference website on September 3.
-
-# AAAI
-# https://aaai.org/conference/aaai/aaai-25/new-faculty-highlights-program/
-
 
 # UCLA talk
 # https://www.cs.ucla.edu/upcoming-events/cs-201-wuyang-chen-simon-fraser-university/
 
 
+
+
+\[3\/2025\]\n
+- Talks at
+[https://aaai.org/conference/aaai/aaai-25/new-faculty-highlights-program/ AAAI 2025],
+[https://meetings.siam.org/sess/dsp_programsess.cfm?SESSIONCODE=82250 SIAM CSE25],
+[https://bliss.eecs.berkeley.edu/Seminar/sp25/wuyang_chen.html, BLISS seminar (Berkeley)],
+[https://tpc.dev/tpc-seminar-series/pde-controller-llms-for-autoformalization-and-reasoning-of-pdes/ TPC Seminar (Argonne National Lab)]
+
 \[2\/2025\]\n
 - [https://pde-controller.github.io/ PDE-Controller] is on [https://arxiv.org/abs/2502.00963 arXiv] now! This is the first AI-for-math work that enables LLM-based scientific reasoning. More data\/code\/model releases are coming soon!
-- Invited talk at [https://foundationsofai.github.io/index.html Foundations of Artificial Intelligence @ Georgia Tech]
+- Talks at [https://foundationsofai.github.io/index.html Georgia Tech], [https://cims.nyu.edu/ai/events/705/ NYU]
 
 \[1/2025\] 1 paper accepted in ICLR'2025
 
@@ -101,7 +102,7 @@ For Ph.D. applicants, please apply to the [https://www.sfu.ca/fas/study/future-g
 - Invited talk at [https://researchseminars.org/talk/AppliedMath/56/ SFU Mathematics of Computation, Application and Data ("MOCAD") Seminar]
 
 
-\[10/2024\] Invited talk at [https://www.unige.ch/math/GIST/events/upcoming-events/liouville-quantum-gravity-continuum-discrete Challenges & opportunities in Foundation Models: accelerating scientific discovery, explainability, efficiency and security], University of Geneva
+\[10/2024\] Invited talk at [https://www.unige.ch/math/GIST/events/past-events/liouville-quantum-gravity-continuum-discrete-1 Challenges & opportunities in Foundation Models: accelerating scientific discovery, explainability, efficiency and security], University of Geneva
 
 
 \[9/2024\] 1 paper accepted in NeurIPS'2024
