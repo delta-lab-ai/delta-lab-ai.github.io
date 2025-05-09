@@ -25,6 +25,11 @@ ACM Transactions on Design Automation of Embedded Systems (TODAES), 2021. \[[htt
 
 # \[[ Paper]\] \[[ Code]\]
 
+- M. Soroco\*\#, J. Song\*\#, M. Xia, K. Emond\*, W. Sun, *W. Chen*\n
+"PDE-Controller: LLMs for Autoformalization and Reasoning of PDEs"\n
+ICML 2025. \[[https://arxiv.org/abs/2502.00963 Paper]\] \[[https://pde-controller.github.io/ Project Webpage]\] \[[https://youtu.be/mFbqkF7cZrk?si=CbHGNSm_oePyh5-y Video]\]
+# /arXiv, 2502.00963/ 
+
 - J. Xu\#, *W Chen*\#, L. Li, Y. Zhao, Y. Wei\n
 "Collapsed Language Models Promote Fairness"\n
 ICLR 2025. \[[https://arxiv.org/abs/2410.04472 Paper]\] \[[https://github.com/Xujxyang/Fairness-NC-main Code]\]
@@ -125,10 +130,6 @@ IEEE International Conference on Computer Vision (ICCV), 2019. \[[https://arxiv.
 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2019. (Oral) \[[https://arxiv.org/abs/1905.06368 Paper]\] \[[https://github.com/VITA-Group/GLNet Code]\]
 
 == Preprint
-
-- M. Soroco\*\#, J. Song\*\#, M. Xia, K. Emond\*, W. Sun, *W. Chen*\n
-"PDE-Controller: LLMs for Autoformalization and Reasoning of PDEs"\n
-/arXiv, 2502.00963/ \[[https://arxiv.org/abs/2502.00963 Paper]\] \[[https://pde-controller.github.io/ Project Webpage]\] \[[https://youtu.be/mFbqkF7cZrk?si=CbHGNSm_oePyh5-y Video]\]
 
 - Y. Liu\*\#, J. Xu\#, M. Soroco, Y. Wei, *W Chen*\n
 "Data-Efficient Inference of Neural Fluid Fields via SciML Foundation Model"\n
