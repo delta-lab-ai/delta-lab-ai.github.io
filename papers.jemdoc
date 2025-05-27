@@ -131,6 +131,10 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2019. (Oral) 
 
 == Preprint
 
+- J. Xu\#, H. Huang\*\#, C. Zou, M. Savva, Y. Wei, *W Chen*\n
+"Hybrid Neural-MPM for Interactive Fluid Simulations in Real-Time"\n
+/arXiv, 2505.18926/ \[[https://arxiv.org/abs/2505.18926 Paper]\]
+
 - Y. Liu\*\#, J. Xu\#, M. Soroco\*, Y. Wei, *W Chen*\n
 "Data-Efficient Inference of Neural Fluid Fields via SciML Foundation Model"\n
 /arXiv, 2412.13897/ \[[https://arxiv.org/abs/2412.13897 Paper]\]
