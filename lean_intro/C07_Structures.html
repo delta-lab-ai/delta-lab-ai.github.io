@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7. Structures &mdash; Mathematics in Lean v4.19.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=0731ccc3" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7048e04d"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="8. Hierarchies" href="C08_Hierarchies.html" />
+    <link rel="prev" title="6. Discrete Mathematics" href="C06_Discrete_Mathematics.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Mathematics in Lean
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="C01_Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C02_Basics.html">2. Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C03_Logic.html">3. Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C04_Sets_and_Functions.html">4. Sets and Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C05_Elementary_Number_Theory.html">5. Elementary Number Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C06_Discrete_Mathematics.html">6. Discrete Mathematics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">7. Structures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#section-structures">7.1. Structures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#defining-structures">7.1.1. Defining Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-instances-of-structures">7.1.2. Defining Instances of Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameterized-structures">7.1.3. Parameterized Structures</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#algebraic-structures">7.2. Algebraic Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building-the-gaussian-integers">7.3. Building the Gaussian Integers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="C08_Hierarchies.html">8. Hierarchies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C09_Groups_and_Rings.html">9. Groups and Rings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C10_Linear_Algebra.html">10. Linear algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C11_Topology.html">11. Topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C12_Differential_Calculus.html">12. Differential Calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C13_Integration_and_Measure_Theory.html">13. Integration and Measure Theory</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mathematics in Lean</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">7. </span>Structures</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/C07_Structures.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="structures">
+<span id="id1"></span><h1><span class="section-number">7. </span>Structures<a class="headerlink" href="#structures" title="Link to this heading">&#61633;</a></h1>
+<p>Modern mathematics makes essential use of algebraic
+structures,
+which encapsulate patterns that can be instantiated in
+multiple settings.
+The subject provides various ways of defining such structures and
+constructing particular instances.</p>
+<p>Lean therefore provides corresponding ways of
+defining structures formally and working with them.
+You have already seen examples of algebraic structures in Lean,
+such as rings and lattices, which were discussed in
+<a class="reference internal" href="C02_Basics.html#basics"><span class="std std-numref">Chapter 2</span></a>.
+This chapter will explain the mysterious square bracket annotations
+that you saw there,
+<code class="docutils literal notranslate"><span class="pre">[Ring</span> <span class="pre">&#945;]</span></code> and <code class="docutils literal notranslate"><span class="pre">[Lattice</span> <span class="pre">&#945;]</span></code>.
+It will also show you how to define and use
+algebraic structures on your own.</p>
+<p>For more technical detail, you can consult <a class="reference external" href="https://leanprover.github.io/theorem_proving_in_lean/">Theorem Proving in Lean</a>,
+and a paper by Anne Baanen, <a class="reference external" href="https://arxiv.org/abs/2202.01629">Use and abuse of instance parameters in the Lean mathematical library</a>.</p>
+<section id="section-structures">
+<span id="id2"></span><h2><span class="section-number">7.1. </span>Structures<a class="headerlink" href="#section-structures" title="Link to this heading">&#61633;</a></h2>
+<section id="defining-structures">
+<h3><span class="section-number">7.1.1. </span>Defining Structures<a class="headerlink" href="#defining-structures" title="Link to this heading">&#61633;</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">structure</span></code> is a collection of data or constraints that must be satisfied.</p></li>
+<li><p>An instance of the <code class="docutils literal notranslate"><span class="pre">structure</span></code>, defined by <code class="docutils literal notranslate"><span class="pre">def</span></code>, is a particular bundle of data satisfying the constraints.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">@[ext]</span>  <span class="c1">-- &quot;Extensionality&quot; Lean auto-generates theorems to prove two instances of a structure are equal when their components are equal</span>
+<span class="kd">structure</span> <span class="n">Point</span> <span class="n">where</span>
+  <span class="n">x</span> <span class="o">:</span> <span class="n">&#8477;</span>
+  <span class="n">y</span> <span class="o">:</span> <span class="n">&#8477;</span>
+  <span class="n">z</span> <span class="o">:</span> <span class="n">&#8477;</span>
+
+
+<span class="kd">structure</span> <span class="n">Point&#39;</span> <span class="n">where</span> <span class="n">build</span> <span class="o">::</span>
+  <span class="n">x</span> <span class="o">:</span> <span class="n">&#8477;</span>
+  <span class="n">y</span> <span class="o">:</span> <span class="n">&#8477;</span>
+  <span class="n">z</span> <span class="o">:</span> <span class="n">&#8477;</span>
+
+
+<span class="c1">-- A structure can also specify constraints:</span>
+<span class="kd">structure</span> <span class="n">StandardTwoSimplex</span> <span class="n">where</span>
+  <span class="n">x</span> <span class="o">:</span> <span class="n">&#8477;</span>
+  <span class="n">y</span> <span class="o">:</span> <span class="n">&#8477;</span>
+  <span class="n">z</span> <span class="o">:</span> <span class="n">&#8477;</span>
+  <span class="n">x_nonneg</span> <span class="o">:</span> <span class="mi">0</span> <span class="bp">&#8804;</span> <span class="n">x</span>
+  <span class="n">y_nonneg</span> <span class="o">:</span> <span class="mi">0</span> <span class="bp">&#8804;</span> <span class="n">y</span>
+  <span class="n">z_nonneg</span> <span class="o">:</span> <span class="mi">0</span> <span class="bp">&#8804;</span> <span class="n">z</span>
+  <span class="n">sum_eq</span> <span class="o">:</span> <span class="n">x</span> <span class="bp">+</span> <span class="n">y</span> <span class="bp">+</span> <span class="n">z</span> <span class="bp">=</span> <span class="mi">1</span>
+
+
+<span class="c1">-- structure can also be used to bundle together properties without the data.</span>
+<span class="kd">structure</span> <span class="n">IsLinear</span> <span class="o">(</span><span class="n">f</span> <span class="o">:</span> <span class="n">&#8477;</span> <span class="bp">&#8594;</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="n">where</span>
+  <span class="n">is_additive</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">x</span> <span class="n">y</span><span class="o">,</span> <span class="n">f</span> <span class="o">(</span><span class="n">x</span> <span class="bp">+</span> <span class="n">y</span><span class="o">)</span> <span class="bp">=</span> <span class="n">f</span> <span class="n">x</span> <span class="bp">+</span> <span class="n">f</span> <span class="n">y</span>
+  <span class="n">preserves_mul</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">x</span> <span class="n">c</span><span class="o">,</span> <span class="n">f</span> <span class="o">(</span><span class="n">c</span> <span class="bp">*</span> <span class="n">x</span><span class="o">)</span> <span class="bp">=</span> <span class="n">c</span> <span class="bp">*</span> <span class="n">f</span> <span class="n">x</span>
+
+
+<span class="c1">-- structure can be defined using a generic type product</span>
+<span class="kd">def</span> <span class="n">Point&#39;&#39;</span> <span class="o">:=</span>
+  <span class="n">&#8477;</span> <span class="bp">&#215;</span> <span class="n">&#8477;</span> <span class="bp">&#215;</span> <span class="n">&#8477;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">protected</span></code> will force using <code class="docutils literal notranslate"><span class="pre">Point.add_comm</span></code> even when the namespace is open, which can avoid ambiguity with a generic theorem like <code class="docutils literal notranslate"><span class="pre">add_comm</span></code>.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kn">protected</span> <span class="kd">theorem</span> <span class="n">add_comm</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">Point</span><span class="o">)</span> <span class="o">:</span> <span class="n">add</span> <span class="n">a</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">add</span> <span class="n">b</span> <span class="n">a</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">add</span><span class="o">,</span> <span class="n">add</span><span class="o">]</span>
+  <span class="n">ext</span> <span class="bp">&lt;;&gt;</span> <span class="n">dsimp</span>
+  <span class="n">repeat&#39;</span> <span class="n">apply</span> <span class="n">add_comm</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">Point</span><span class="o">)</span> <span class="o">:</span> <span class="n">add</span> <span class="n">a</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">add</span> <span class="n">b</span> <span class="n">a</span> <span class="o">:=</span> <span class="kd">by</span> <span class="n">simp</span> <span class="o">[</span><span class="n">add</span><span class="o">,</span> <span class="n">add_comm</span><span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="defining-instances-of-structures">
+<h3><span class="section-number">7.1.2. </span>Defining Instances of Structures<a class="headerlink" href="#defining-instances-of-structures" title="Link to this heading">&#61633;</a></h3>
+<p>Lean provides multiple ways of defining particular instances of the <code class="docutils literal notranslate"><span class="pre">Point</span></code> structure.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="c1">-- named structure value</span>
+<span class="kd">def</span> <span class="n">myPoint1</span> <span class="o">:</span> <span class="n">Point</span> <span class="n">where</span>
+  <span class="n">x</span> <span class="o">:=</span> <span class="mi">2</span>
+  <span class="n">y</span> <span class="o">:=</span> <span class="bp">-</span><span class="mi">1</span>
+  <span class="n">z</span> <span class="o">:=</span> <span class="mi">4</span>
+
+
+<span class="c1">-- anonymous structure value</span>
+<span class="kd">example</span> <span class="o">:</span> <span class="n">Point</span> <span class="n">where</span>
+  <span class="n">x</span> <span class="o">:=</span> <span class="mi">2</span>
+  <span class="n">y</span> <span class="o">:=</span> <span class="bp">-</span><span class="mi">1</span>
+  <span class="n">z</span> <span class="o">:=</span> <span class="mi">4</span>
+
+
+<span class="kd">def</span> <span class="n">myPoint2</span> <span class="o">:</span> <span class="n">Point</span> <span class="o">:=</span>
+  <span class="o">&#10216;</span><span class="mi">2</span><span class="o">,</span> <span class="bp">-</span><span class="mi">1</span><span class="o">,</span> <span class="mi">4</span><span class="o">&#10217;</span>
+
+<span class="kd">def</span> <span class="n">myPoint3</span> <span class="o">:=</span>
+  <span class="n">Point.mk</span> <span class="mi">2</span> <span class="o">(</span><span class="bp">-</span><span class="mi">1</span><span class="o">)</span> <span class="mi">4</span>  <span class="c1">-- ``.mk``: the &quot;make&quot; constructor</span>
+
+<span class="k">#check</span> <span class="n">myPoint1</span>
+
+<span class="k">#check</span> <span class="n">Point&#39;.build</span> <span class="mi">2</span> <span class="o">(</span><span class="bp">-</span><span class="mi">1</span><span class="o">)</span> <span class="mi">4</span>
+
+
+<span class="k">#check</span> <span class="n">Point.ext</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">Point</span><span class="o">)</span> <span class="o">(</span><span class="n">hx</span> <span class="o">:</span> <span class="n">a.x</span> <span class="bp">=</span> <span class="n">b.x</span><span class="o">)</span> <span class="o">(</span><span class="n">hy</span> <span class="o">:</span> <span class="n">a.y</span> <span class="bp">=</span> <span class="n">b.y</span><span class="o">)</span> <span class="o">(</span><span class="n">hz</span> <span class="o">:</span> <span class="n">a.z</span> <span class="bp">=</span> <span class="n">b.z</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">=</span> <span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">ext</span>
+  <span class="c1">-- &#183; assumption</span>
+  <span class="c1">-- &#183; exact hx</span>
+  <span class="c1">-- &#183; assumption</span>
+  <span class="c1">-- &#183; assumption</span>
+  <span class="n">repeat&#39;</span> <span class="n">assumption</span>
+</pre></div>
+</div>
+</section>
+<section id="parameterized-structures">
+<h3><span class="section-number">7.1.3. </span>Parameterized Structures<a class="headerlink" href="#parameterized-structures" title="Link to this heading">&#61633;</a></h3>
+<p>Structures can depend on parameters.
+For example, we can generalize the standard 2-simplex to the standard
+<span class="math notranslate nohighlight">\(n\)</span>-simplex for any <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kn">open</span> <span class="n">BigOperators</span>
+
+<span class="kd">structure</span> <span class="n">StandardSimplex</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="n">where</span>
+  <span class="n">V</span> <span class="o">:</span> <span class="n">Fin</span> <span class="n">n</span> <span class="bp">&#8594;</span> <span class="n">&#8477;</span>  <span class="c1">-- vertices</span>
+  <span class="n">NonNeg</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">i</span> <span class="o">:</span> <span class="n">Fin</span> <span class="n">n</span><span class="o">,</span> <span class="mi">0</span> <span class="bp">&#8804;</span> <span class="n">V</span> <span class="n">i</span>
+  <span class="n">sum_eq_one</span> <span class="o">:</span> <span class="o">(</span><span class="bp">&#8721;</span> <span class="n">i</span><span class="o">,</span> <span class="n">V</span> <span class="n">i</span><span class="o">)</span> <span class="bp">=</span> <span class="mi">1</span>
+
+<span class="kn">namespace</span> <span class="n">StandardSimplex</span>
+
+<span class="kd">def</span> <span class="n">midpoint</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">StandardSimplex</span> <span class="n">n</span><span class="o">)</span> <span class="o">:</span> <span class="n">StandardSimplex</span> <span class="n">n</span>
+  <span class="c1">-- We need to follow the definition of StandardSimplex and provide V i, NonNeg and sum_eq_one</span>
+    <span class="n">where</span>
+  <span class="n">V</span> <span class="n">i</span> <span class="o">:=</span> <span class="o">(</span><span class="n">a.V</span> <span class="n">i</span> <span class="bp">+</span> <span class="n">b.V</span> <span class="n">i</span><span class="o">)</span> <span class="bp">/</span> <span class="mi">2</span>
+  <span class="n">NonNeg</span> <span class="o">:=</span> <span class="kd">by</span>
+    <span class="n">intro</span> <span class="n">i</span>
+    <span class="n">apply</span> <span class="n">div_nonneg</span>
+    <span class="bp">&#183;</span> <span class="n">linarith</span> <span class="o">[</span><span class="n">a.NonNeg</span> <span class="n">i</span><span class="o">,</span> <span class="n">b.NonNeg</span> <span class="n">i</span><span class="o">]</span>
+    <span class="n">norm_num</span>
+  <span class="n">sum_eq_one</span> <span class="o">:=</span> <span class="kd">by</span>
+    <span class="n">simp</span> <span class="o">[</span><span class="n">div_eq_mul_inv</span><span class="o">,</span> <span class="bp">&#8592;</span> <span class="n">Finset.sum_mul</span><span class="o">,</span> <span class="n">Finset.sum_add_distrib</span><span class="o">,</span>
+      <span class="n">a.sum_eq_one</span><span class="o">,</span> <span class="n">b.sum_eq_one</span><span class="o">]</span>
+    <span class="n">field_simp</span>
+
+<span class="kd">end</span> <span class="n">StandardSimplex</span>
+</pre></div>
+</div>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">:</span> <span class="n">AddSubgroup</span> <span class="n">&#8474;</span> <span class="n">where</span>  <span class="c1">-- additive subgroup</span>
+  <span class="n">carrier</span> <span class="o">:=</span> <span class="n">Set.range</span> <span class="o">((</span><span class="bp">&#8593;</span><span class="o">)</span> <span class="o">:</span> <span class="n">&#8484;</span> <span class="bp">&#8594;</span> <span class="n">&#8474;</span><span class="o">)</span>  <span class="c1">-- a canonical coercion map from integers to rationals</span>
+  <span class="n">add_mem&#39;</span> <span class="o">:=</span> <span class="kd">by</span>
+    <span class="n">rintro</span> <span class="n">_</span> <span class="n">_</span> <span class="o">&#10216;</span><span class="n">n</span><span class="o">,</span> <span class="n">rfl</span><span class="o">&#10217;</span> <span class="o">&#10216;</span><span class="n">m</span><span class="o">,</span> <span class="n">rfl</span><span class="o">&#10217;</span>
+    <span class="n">use</span> <span class="n">n</span> <span class="bp">+</span> <span class="n">m</span>
+    <span class="n">simp</span>
+  <span class="n">zero_mem&#39;</span> <span class="o">:=</span> <span class="kd">by</span>
+    <span class="n">use</span> <span class="mi">0</span>
+    <span class="n">simp</span>
+  <span class="n">neg_mem&#39;</span> <span class="o">:=</span> <span class="kd">by</span>
+    <span class="n">rintro</span> <span class="n">_</span> <span class="o">&#10216;</span><span class="n">n</span><span class="o">,</span> <span class="n">rfl</span><span class="o">&#10217;</span>
+    <span class="n">use</span> <span class="bp">-</span><span class="n">n</span>
+    <span class="n">simp</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="algebraic-structures">
+<span id="section-algebraic-structures"></span><h2><span class="section-number">7.2. </span>Algebraic Structures<a class="headerlink" href="#algebraic-structures" title="Link to this heading">&#61633;</a></h2>
+</section>
+<section id="building-the-gaussian-integers">
+<span id="section-building-the-gaussian-integers"></span><h2><span class="section-number">7.3. </span>Building the Gaussian Integers<a class="headerlink" href="#building-the-gaussian-integers" title="Link to this heading">&#61633;</a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="C06_Discrete_Mathematics.html" class="btn btn-neutral float-left" title="6. Discrete Mathematics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="C08_Hierarchies.html" class="btn btn-neutral float-right" title="8. Hierarchies" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Jeremy Avigad, Patrick Massot. Modified, simplified, and annotated by Wuyang Chen. Text licensed under CC BY 4.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

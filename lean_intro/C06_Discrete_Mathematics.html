@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Discrete Mathematics &mdash; Mathematics in Lean v4.19.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=0731ccc3" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7048e04d"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Structures" href="C07_Structures.html" />
+    <link rel="prev" title="5. Elementary Number Theory" href="C05_Elementary_Number_Theory.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Mathematics in Lean
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="C01_Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C02_Basics.html">2. Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C03_Logic.html">3. Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C04_Sets_and_Functions.html">4. Sets and Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C05_Elementary_Number_Theory.html">5. Elementary Number Theory</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Discrete Mathematics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#finsets-and-fintypes">6.1. Finsets and Fintypes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#counting-arguments">6.2. Counting Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#inductively-defined-types">6.3. Inductively Defined Types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="C07_Structures.html">7. Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C08_Hierarchies.html">8. Hierarchies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C09_Groups_and_Rings.html">9. Groups and Rings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C10_Linear_Algebra.html">10. Linear algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C11_Topology.html">11. Topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C12_Differential_Calculus.html">12. Differential Calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C13_Integration_and_Measure_Theory.html">13. Integration and Measure Theory</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mathematics in Lean</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6. </span>Discrete Mathematics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/C06_Discrete_Mathematics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="discrete-mathematics">
+<span id="id1"></span><h1><span class="section-number">6. </span>Discrete Mathematics<a class="headerlink" href="#discrete-mathematics" title="Link to this heading">&#61633;</a></h1>
+<p><em>Discrete Mathematics</em> is the study of finite sets, objects, and structures.
+We can count the elements of a finite set, and we can compute finite sums or products over its
+elements, we can compute maximums and minimums, and so on.
+We can also study objects that are generated by finitely many applications of
+certain generating functions, we can define functions by structural recursion,
+and prove theorems by structural induction.
+This chapters describes parts of Mathlib that support these activities.</p>
+<section id="finsets-and-fintypes">
+<span id="id2"></span><h2><span class="section-number">6.1. </span>Finsets and Fintypes<a class="headerlink" href="#finsets-and-fintypes" title="Link to this heading">&#61633;</a></h2>
+</section>
+<section id="counting-arguments">
+<span id="id3"></span><h2><span class="section-number">6.2. </span>Counting Arguments<a class="headerlink" href="#counting-arguments" title="Link to this heading">&#61633;</a></h2>
+</section>
+<section id="inductively-defined-types">
+<span id="id4"></span><h2><span class="section-number">6.3. </span>Inductively Defined Types<a class="headerlink" href="#inductively-defined-types" title="Link to this heading">&#61633;</a></h2>
+<p>We have seen that Nat is a inductive structure:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">inductive</span> <span class="n">Nat</span> <span class="n">where</span>  <span class="c1">-- ``Nat`` is a Type defined by induction</span>
+  <span class="bp">|</span> <span class="n">zero</span> <span class="o">:</span> <span class="n">Nat</span>
+  <span class="bp">|</span> <span class="n">succ</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:</span> <span class="n">Nat</span>
+</pre></div>
+</div>
+<p>The data type <code class="docutils literal notranslate"><span class="pre">List</span> <span class="pre">&#945;</span></code> is defined inductively:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kn">namespace</span> <span class="n">MyListSpace</span>
+
+<span class="kd">inductive</span> <span class="n">List</span> <span class="o">(</span><span class="n">&#945;</span> <span class="o">:</span> <span class="kt">Type</span><span class="bp">*</span><span class="o">)</span> <span class="n">where</span>
+  <span class="bp">|</span> <span class="n">nil</span>  <span class="o">:</span> <span class="n">List</span> <span class="n">&#945;</span>  <span class="c1">-- empty list</span>
+  <span class="bp">|</span> <span class="n">cons</span> <span class="o">:</span> <span class="n">&#945;</span> <span class="bp">&#8594;</span> <span class="n">List</span> <span class="n">&#945;</span> <span class="bp">&#8594;</span> <span class="n">List</span> <span class="n">&#945;</span>  <span class="c1">-- constructor: take two args (&#945;, List &#945;), return [&#945;, ...List &#945;]</span>
+
+<span class="kd">end</span> <span class="n">MyListSpace</span>
+</pre></div>
+</div>
+<p>Lean defines:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[]</span></code> for <code class="docutils literal notranslate"><span class="pre">nil</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arg&#8321;</span> <span class="pre">::</span> <span class="pre">arg&#8322;</span></code> for <code class="docutils literal notranslate"><span class="pre">cons</span> <span class="pre">arg&#8321;</span> <span class="pre">arg&#8322;</span></code>; <code class="docutils literal notranslate"><span class="pre">arg&#8321;</span></code> <em>must</em> be an element, <code class="docutils literal notranslate"><span class="pre">arg&#8322;</span></code> must be a list.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">::</span></code> is right-associative</p></li>
+<li><p>You can write <code class="docutils literal notranslate"><span class="pre">[a,</span> <span class="pre">b,</span> <span class="pre">c]</span></code> for <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">::</span> <span class="pre">b</span> <span class="pre">::</span> <span class="pre">c</span> <span class="pre">::</span> <span class="pre">[]</span></code>, because:</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">::</span> <span class="n">b</span> <span class="o">::</span> <span class="n">c</span> <span class="o">::</span> <span class="o">[]</span> <span class="bp">=</span> <span class="n">a</span> <span class="o">::</span> <span class="n">b</span> <span class="o">::</span> <span class="o">(</span><span class="n">c</span> <span class="o">::</span> <span class="o">[])</span> <span class="bp">=</span> <span class="n">a</span> <span class="o">::</span> <span class="o">(</span><span class="n">b</span> <span class="o">::</span> <span class="o">[</span><span class="n">c</span><span class="o">])</span> <span class="bp">=</span> <span class="n">a</span> <span class="o">::</span> <span class="o">[</span><span class="n">b</span><span class="o">,</span> <span class="n">c</span><span class="o">]</span> <span class="bp">=</span> <span class="o">[</span><span class="n">a</span><span class="o">,</span> <span class="n">b</span><span class="o">,</span> <span class="n">c</span><span class="o">]</span>
+</pre></div>
+</div>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span> <span class="n">append</span> <span class="o">{</span><span class="n">&#945;</span> <span class="o">:</span> <span class="kt">Type</span><span class="bp">*</span><span class="o">}</span> <span class="o">:</span> <span class="n">List</span> <span class="n">&#945;</span> <span class="bp">&#8594;</span> <span class="n">List</span> <span class="n">&#945;</span> <span class="bp">&#8594;</span> <span class="n">List</span> <span class="n">&#945;</span>  <span class="c1">-- take two args (List &#945;, List &#945;)</span>
+  <span class="c1">-- bs is a List</span>
+  <span class="bp">|</span> <span class="o">[],</span>      <span class="n">bs</span> <span class="bp">=&gt;</span> <span class="n">bs</span>  <span class="c1">-- append bs to [] leads to bs</span>
+  <span class="c1">-- ``a :: as`` is a List [``a``, ..., ``as``]</span>
+  <span class="bp">|</span> <span class="n">a</span> <span class="o">::</span> <span class="n">as</span><span class="o">,</span> <span class="n">bs</span> <span class="bp">=&gt;</span> <span class="n">a</span> <span class="o">::</span> <span class="o">(</span><span class="n">append</span> <span class="n">as</span> <span class="n">bs</span><span class="o">)</span>  <span class="c1">-- ``a :: (append as bs)``: [``a``, ..., ``as``, ...``bs``]</span>
+
+<span class="kd">def</span> <span class="n">map</span> <span class="o">{</span><span class="n">&#945;</span> <span class="n">&#946;</span> <span class="o">:</span> <span class="kt">Type</span><span class="bp">*</span><span class="o">}</span> <span class="o">(</span><span class="n">f</span> <span class="o">:</span> <span class="n">&#945;</span> <span class="bp">&#8594;</span> <span class="n">&#946;</span><span class="o">)</span> <span class="o">:</span> <span class="n">List</span> <span class="n">&#945;</span> <span class="bp">&#8594;</span> <span class="n">List</span> <span class="n">&#946;</span>
+  <span class="bp">|</span> <span class="o">[]</span>      <span class="bp">=&gt;</span> <span class="o">[]</span>
+  <span class="bp">|</span> <span class="n">a</span> <span class="o">::</span> <span class="n">as</span> <span class="bp">=&gt;</span> <span class="n">f</span> <span class="n">a</span> <span class="o">::</span> <span class="n">map</span> <span class="n">f</span> <span class="n">as</span>  <span class="c1">-- applies f to every element of the list</span>
+
+<span class="k">#eval</span> <span class="n">append</span> <span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">]</span> <span class="o">[</span><span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">]</span>
+<span class="k">#eval</span> <span class="n">map</span> <span class="o">(</span><span class="k">fun</span> <span class="n">n</span> <span class="bp">=&gt;</span> <span class="n">n</span><span class="bp">^</span><span class="mi">2</span><span class="o">)</span> <span class="o">[</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>The functions <code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"><span class="pre">map</span></code> are also defined in the standard library.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">append</span> <span class="pre">as</span> <span class="pre">bs</span></code> can be written as <code class="docutils literal notranslate"><span class="pre">as</span> <span class="pre">++</span> <span class="pre">bs</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="C05_Elementary_Number_Theory.html" class="btn btn-neutral float-left" title="5. Elementary Number Theory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="C07_Structures.html" class="btn btn-neutral float-right" title="7. Structures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Jeremy Avigad, Patrick Massot. Modified, simplified, and annotated by Wuyang Chen. Text licensed under CC BY 4.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

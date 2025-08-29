@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Elementary Number Theory &mdash; Mathematics in Lean v4.19.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=0731ccc3" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7048e04d"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Discrete Mathematics" href="C06_Discrete_Mathematics.html" />
+    <link rel="prev" title="4. Sets and Functions" href="C04_Sets_and_Functions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Mathematics in Lean
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="C01_Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C02_Basics.html">2. Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C03_Logic.html">3. Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C04_Sets_and_Functions.html">4. Sets and Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Elementary Number Theory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#irrational-roots">5.1. Irrational Roots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#induction-and-recursion">5.2. Induction and Recursion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#factorial">5.2.1. Factorial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prove-induction-using-induction-n-with-n-ih">5.2.2. Prove Induction using <code class="docutils literal notranslate"><span class="pre">induction'</span> <span class="pre">n</span> <span class="pre">with</span> <span class="pre">n</span> <span class="pre">ih</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finite-sums-and-products">5.2.3. Finite Sums and Products</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nature-number">5.2.4. Nature Number</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#infinitely-many-primes">5.3. Infinitely Many Primes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-induction">5.4. More Induction</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#induction">5.4.1. <code class="docutils literal notranslate"><span class="pre">induction</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-ways-to-define-use-inductions">5.4.2. More Ways to Define/Use Inductions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tail-recursive">5.4.3. Tail-Recursive</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="C06_Discrete_Mathematics.html">6. Discrete Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C07_Structures.html">7. Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C08_Hierarchies.html">8. Hierarchies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C09_Groups_and_Rings.html">9. Groups and Rings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C10_Linear_Algebra.html">10. Linear algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C11_Topology.html">11. Topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C12_Differential_Calculus.html">12. Differential Calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C13_Integration_and_Measure_Theory.html">13. Integration and Measure Theory</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mathematics in Lean</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">5. </span>Elementary Number Theory</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/C05_Elementary_Number_Theory.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="elementary-number-theory">
+<span id="number-theory"></span><h1><span class="section-number">5. </span>Elementary Number Theory<a class="headerlink" href="#elementary-number-theory" title="Link to this heading">&#61633;</a></h1>
+<p>In this chapter, we show you how to formalize some elementary
+results in number theory.
+As we deal with more substantive mathematical content,
+the proofs will get longer and more involved,
+building on the skills you have already mastered.</p>
+<section id="irrational-roots">
+<span id="section-irrational-roots"></span><h2><span class="section-number">5.1. </span>Irrational Roots<a class="headerlink" href="#irrational-roots" title="Link to this heading">&#61633;</a></h2>
+</section>
+<section id="induction-and-recursion">
+<span id="section-induction-and-recursion"></span><h2><span class="section-number">5.2. </span>Induction and Recursion<a class="headerlink" href="#induction-and-recursion" title="Link to this heading">&#61633;</a></h2>
+<section id="factorial">
+<h3><span class="section-number">5.2.1. </span>Factorial<a class="headerlink" href="#factorial" title="Link to this heading">&#61633;</a></h3>
+<p>Recursive definition of the factorial function.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span> <span class="n">fac</span> <span class="o">:</span> <span class="n">&#8469;</span> <span class="bp">&#8594;</span> <span class="n">&#8469;</span>  <span class="c1">-- no := here</span>
+  <span class="bp">|</span> <span class="mi">0</span> <span class="bp">=&gt;</span> <span class="mi">1</span>
+  <span class="bp">|</span> <span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span> <span class="bp">=&gt;</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">)</span> <span class="bp">*</span> <span class="n">fac</span> <span class="n">n</span>
+</pre></div>
+</div>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">:</span> <span class="n">fac</span> <span class="mi">0</span> <span class="bp">=</span> <span class="mi">1</span> <span class="o">:=</span>
+  <span class="n">rfl</span>
+
+<span class="kd">example</span> <span class="o">:</span> <span class="n">fac</span> <span class="mi">0</span> <span class="bp">=</span> <span class="mi">1</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+
+<span class="kd">example</span> <span class="o">:</span> <span class="n">fac</span> <span class="mi">0</span> <span class="bp">=</span> <span class="mi">1</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">simp</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="n">fac</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">)</span> <span class="bp">=</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">)</span> <span class="bp">*</span> <span class="n">fac</span> <span class="n">n</span> <span class="o">:=</span>
+  <span class="n">rfl</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="n">fac</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">)</span> <span class="bp">=</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">)</span> <span class="bp">*</span> <span class="n">fac</span> <span class="n">n</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="n">fac</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">)</span> <span class="bp">=</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">)</span> <span class="bp">*</span> <span class="n">fac</span> <span class="n">n</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">simp</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="prove-induction-using-induction-n-with-n-ih">
+<h3><span class="section-number">5.2.2. </span>Prove Induction using <code class="docutils literal notranslate"><span class="pre">induction'</span> <span class="pre">n</span> <span class="pre">with</span> <span class="pre">n</span> <span class="pre">ih</span></code><a class="headerlink" href="#prove-induction-using-induction-n-with-n-ih" title="Link to this heading">&#61633;</a></h3>
+<p>Prove a general statement by proving that the statement holds of 0; and if it holds at <span class="math notranslate nohighlight">\(n\)</span>, it also holds of <span class="math notranslate nohighlight">\(n + 1\)</span>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">induction'</span> <span class="pre">n</span> <span class="pre">with</span> <span class="pre">n</span> <span class="pre">ih</span></code> leads to two goals:
+1) <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">fac</span> <span class="pre">0</span></code>,
+2) assuming <code class="docutils literal notranslate"><span class="pre">ih</span> <span class="pre">:</span> <span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">fac</span> <span class="pre">n</span></code>, prove <code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;</span> <span class="pre">fac</span> <span class="pre">(n</span> <span class="pre">+</span> <span class="pre">1)</span></code>.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">theorem</span> <span class="n">fac_pos</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="mi">0</span> <span class="bp">&lt;</span> <span class="n">fac</span> <span class="n">n</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="c1">-- n defines the fac;</span>
+  <span class="c1">-- ``with n&#39; ih`` names the variable and the assumption for the inductive hypothesis</span>
+  <span class="n">induction&#39;</span> <span class="n">n</span> <span class="k">with</span> <span class="n">n&#39;</span> <span class="n">ih</span>
+  <span class="bp">&#183;</span> <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+    <span class="n">exact</span> <span class="n">zero_lt_one</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+  <span class="n">exact</span> <span class="n">mul_pos</span> <span class="n">n&#39;.succ_pos</span> <span class="n">ih</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">induction'</span></code> tactic can include hypotheses (<code class="docutils literal notranslate"><span class="pre">ile</span></code> in the example below) that depend on the induction variable as part of the induction hypothesis.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">theorem</span> <span class="n">dvd_fac</span> <span class="o">{</span><span class="n">i</span> <span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">}</span> <span class="o">(</span><span class="n">ipos</span> <span class="o">:</span> <span class="mi">0</span> <span class="bp">&lt;</span> <span class="n">i</span><span class="o">)</span> <span class="o">(</span><span class="n">ile</span> <span class="o">:</span> <span class="n">i</span> <span class="bp">&#8804;</span> <span class="n">n</span><span class="o">)</span> <span class="o">:</span> <span class="n">i</span> <span class="bp">&#8739;</span> <span class="n">fac</span> <span class="n">n</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="c1">-- ``ile`` depends on ``n``, the induction variable</span>
+  <span class="n">induction&#39;</span> <span class="n">n</span> <span class="k">with</span> <span class="n">n</span> <span class="n">ih</span>
+  <span class="bp">&#183;</span> <span class="n">exact</span> <span class="n">absurd</span> <span class="n">ipos</span> <span class="o">(</span><span class="n">not_lt_of_ge</span> <span class="n">ile</span><span class="o">)</span>  <span class="c1">-- &quot;ex falso quodlibet&quot;</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+  <span class="n">rcases</span> <span class="n">Nat.of_le_succ</span> <span class="n">ile</span> <span class="k">with</span> <span class="n">h</span> <span class="bp">|</span> <span class="n">h</span>  <span class="c1">-- ile: i &#8804; n i.e. i &#8804; n.succ</span>
+  <span class="bp">&#183;</span> <span class="n">apply</span> <span class="n">dvd_mul_of_dvd_right</span> <span class="o">(</span><span class="n">ih</span> <span class="n">h</span><span class="o">)</span>  <span class="c1">-- dvd_mul_of_dvd_right takes ih; ih takes h</span>
+  <span class="bp">&#183;</span> <span class="n">rw</span> <span class="o">[</span><span class="n">h</span><span class="o">]</span><span class="bp">;</span> <span class="n">apply</span> <span class="n">dvd_mul_right</span>  <span class="c1">-- n.succ = n+1</span>
+</pre></div>
+</div>
+</section>
+<section id="finite-sums-and-products">
+<h3><span class="section-number">5.2.3. </span>Finite Sums and Products<a class="headerlink" href="#finite-sums-and-products" title="Link to this heading">&#61633;</a></h3>
+<p>Induction is often used to prove identities involving finite sums and products.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Finset.sum</span> <span class="pre">s</span> <span class="pre">f</span></code>: <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">:</span> <span class="pre">Finset</span> <span class="pre">&#945;</span></code> is a finite set of elements of the type <code class="docutils literal notranslate"><span class="pre">&#945;</span></code> and
+<code class="docutils literal notranslate"><span class="pre">f</span></code> is a function defined on <code class="docutils literal notranslate"><span class="pre">&#945;</span></code>.</p>
+<p>You need <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">Algebra.BigOperators.Ring</span></code> and <code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">BigOperators</span></code> to use notations like <code class="docutils literal notranslate"><span class="pre">&#8721;</span> <span class="pre">x</span> <span class="pre">&#8712;</span> <span class="pre">s,</span> <span class="pre">f</span> <span class="pre">x</span></code> <code class="docutils literal notranslate"><span class="pre">&#8719;</span> <span class="pre">x</span> <span class="pre">&#8712;</span> <span class="pre">s,</span> <span class="pre">f</span> <span class="pre">x</span></code>.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">variable</span> <span class="o">{</span><span class="n">&#945;</span> <span class="o">:</span> <span class="kt">Type</span><span class="bp">*</span><span class="o">}</span> <span class="o">(</span><span class="n">s</span> <span class="o">:</span> <span class="n">Finset</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">(</span><span class="n">f</span> <span class="o">:</span> <span class="n">&#8469;</span> <span class="bp">&#8594;</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span>
+
+<span class="k">#check</span> <span class="n">Finset.sum</span> <span class="n">s</span> <span class="n">f</span>
+<span class="k">#check</span> <span class="n">Finset.prod</span> <span class="n">s</span> <span class="n">f</span>
+
+<span class="kn">open</span> <span class="n">BigOperators</span>
+<span class="kn">open</span> <span class="n">Finset</span>
+
+<span class="kd">example</span> <span class="o">:</span> <span class="n">s.sum</span> <span class="n">f</span> <span class="bp">=</span> <span class="bp">&#8721;</span> <span class="n">x</span> <span class="bp">&#8712;</span> <span class="n">s</span><span class="o">,</span> <span class="n">f</span> <span class="n">x</span> <span class="o">:=</span>
+  <span class="n">rfl</span>
+
+<span class="kd">example</span> <span class="o">:</span> <span class="n">s.prod</span> <span class="n">f</span> <span class="bp">=</span> <span class="bp">&#8719;</span> <span class="n">x</span> <span class="bp">&#8712;</span> <span class="n">s</span><span class="o">,</span> <span class="n">f</span> <span class="n">x</span> <span class="o">:=</span>
+  <span class="n">rfl</span>
+
+<span class="kd">example</span> <span class="o">:</span> <span class="o">(</span><span class="n">range</span> <span class="n">n</span><span class="o">)</span><span class="bp">.</span><span class="n">sum</span> <span class="n">f</span> <span class="bp">=</span> <span class="bp">&#8721;</span> <span class="n">x</span> <span class="bp">&#8712;</span> <span class="n">range</span> <span class="n">n</span><span class="o">,</span> <span class="n">f</span> <span class="n">x</span> <span class="o">:=</span>
+  <span class="n">rfl</span>
+
+<span class="kd">example</span> <span class="o">:</span> <span class="o">(</span><span class="n">range</span> <span class="n">n</span><span class="o">)</span><span class="bp">.</span><span class="n">prod</span> <span class="n">f</span> <span class="bp">=</span> <span class="bp">&#8719;</span> <span class="n">x</span> <span class="bp">&#8712;</span> <span class="n">range</span> <span class="n">n</span><span class="o">,</span> <span class="n">f</span> <span class="n">x</span> <span class="o">:=</span>
+  <span class="n">rfl</span>
+</pre></div>
+</div>
+<p>The facts <code class="docutils literal notranslate"><span class="pre">Finset.sum_range_zero</span></code> and <code class="docutils literal notranslate"><span class="pre">Finset.sum_range_succ</span></code>
+provide a recursive description of summation up to <span class="math notranslate nohighlight">\(n\)</span>,
+and similarly for products.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">f</span> <span class="o">:</span> <span class="n">&#8469;</span> <span class="bp">&#8594;</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="bp">&#8721;</span> <span class="n">x</span> <span class="bp">&#8712;</span> <span class="n">range</span> <span class="mi">0</span><span class="o">,</span> <span class="n">f</span> <span class="n">x</span> <span class="bp">=</span> <span class="mi">0</span> <span class="o">:=</span>
+  <span class="n">Finset.sum_range_zero</span> <span class="n">f</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">f</span> <span class="o">:</span> <span class="n">&#8469;</span> <span class="bp">&#8594;</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="bp">&#8721;</span> <span class="n">x</span> <span class="bp">&#8712;</span> <span class="n">range</span> <span class="n">n.succ</span><span class="o">,</span> <span class="n">f</span> <span class="n">x</span> <span class="bp">=</span> <span class="bp">&#8721;</span> <span class="n">x</span> <span class="bp">&#8712;</span> <span class="n">range</span> <span class="n">n</span><span class="o">,</span> <span class="n">f</span> <span class="n">x</span> <span class="bp">+</span> <span class="n">f</span> <span class="n">n</span> <span class="o">:=</span>
+  <span class="n">Finset.sum_range_succ</span> <span class="n">f</span> <span class="n">n</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">f</span> <span class="o">:</span> <span class="n">&#8469;</span> <span class="bp">&#8594;</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="bp">&#8719;</span> <span class="n">x</span> <span class="bp">&#8712;</span> <span class="n">range</span> <span class="mi">0</span><span class="o">,</span> <span class="n">f</span> <span class="n">x</span> <span class="bp">=</span> <span class="mi">1</span> <span class="o">:=</span>
+  <span class="n">Finset.prod_range_zero</span> <span class="n">f</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">f</span> <span class="o">:</span> <span class="n">&#8469;</span> <span class="bp">&#8594;</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="bp">&#8719;</span> <span class="n">x</span> <span class="bp">&#8712;</span> <span class="n">range</span> <span class="n">n.succ</span><span class="o">,</span> <span class="n">f</span> <span class="n">x</span> <span class="bp">=</span> <span class="o">(</span><span class="bp">&#8719;</span> <span class="n">x</span> <span class="bp">&#8712;</span> <span class="n">range</span> <span class="n">n</span><span class="o">,</span> <span class="n">f</span> <span class="n">x</span><span class="o">)</span> <span class="bp">*</span> <span class="n">f</span> <span class="n">n</span> <span class="o">:=</span>
+  <span class="n">Finset.prod_range_succ</span> <span class="n">f</span> <span class="n">n</span>
+</pre></div>
+</div>
+</section>
+<section id="nature-number">
+<h3><span class="section-number">5.2.4. </span>Nature Number<a class="headerlink" href="#nature-number" title="Link to this heading">&#61633;</a></h3>
+<p>In Lean&#8217;s core library,
+both the natural numbers and
+its addition and multiplication are defined
+using recursion,
+and their fundamental properties are also established using induction.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">inductive</span> <span class="n">Nat</span> <span class="n">where</span>  <span class="c1">-- ``Nat`` is a Type defined by induction</span>
+  <span class="bp">|</span> <span class="n">zero</span> <span class="o">:</span> <span class="n">Nat</span>
+  <span class="bp">|</span> <span class="n">succ</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:</span> <span class="n">Nat</span>
+
+
+<span class="kd">def</span> <span class="n">Nat.add</span> <span class="o">:</span> <span class="n">Nat</span> <span class="bp">&#8594;</span> <span class="n">Nat</span> <span class="bp">&#8594;</span> <span class="n">Nat</span>
+  <span class="bp">|</span> <span class="n">a</span><span class="o">,</span> <span class="n">Nat.zero</span>   <span class="bp">=&gt;</span> <span class="n">a</span>
+  <span class="bp">|</span> <span class="n">a</span><span class="o">,</span> <span class="n">Nat.succ</span> <span class="n">b</span> <span class="bp">=&gt;</span> <span class="n">Nat.succ</span> <span class="o">(</span><span class="n">Nat.add</span> <span class="n">a</span> <span class="n">b</span><span class="o">)</span>
+
+
+<span class="c1">-- Similar for multiplication</span>
+<span class="kd">def</span> <span class="n">Nat.mul</span> <span class="o">:</span> <span class="n">Nat</span> <span class="bp">&#8594;</span> <span class="n">Nat</span> <span class="bp">&#8594;</span> <span class="n">Nat</span>
+  <span class="bp">|</span> <span class="n">_</span><span class="o">,</span> <span class="n">Nat.zero</span>          <span class="bp">=&gt;</span> <span class="n">Nat.zero</span>
+  <span class="bp">|</span> <span class="n">a</span><span class="o">,</span> <span class="n">Nat.succ</span> <span class="n">b</span> <span class="bp">=&gt;</span> <span class="n">Nat.add</span> <span class="o">(</span><span class="n">Nat.mul</span> <span class="n">a</span> <span class="n">b</span><span class="o">)</span> <span class="n">a</span>
+</pre></div>
+</div>
+<p>Thus:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span>
+<span class="bp">=</span> <span class="n">Nat.add</span> <span class="n">n</span> <span class="mi">1</span>
+<span class="bp">=</span> <span class="n">Nat.add</span> <span class="n">n</span> <span class="o">(</span><span class="n">Nat.succ</span> <span class="mi">0</span><span class="o">)</span>
+<span class="bp">=</span> <span class="n">Nat.succ</span> <span class="o">(</span><span class="n">Nat.add</span> <span class="n">n</span> <span class="mi">0</span><span class="o">)</span>
+<span class="bp">=</span> <span class="n">Nat.succ</span> <span class="n">n</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="infinitely-many-primes">
+<span id="section-infinitely-many-primes"></span><h2><span class="section-number">5.3. </span>Infinitely Many Primes<a class="headerlink" href="#infinitely-many-primes" title="Link to this heading">&#61633;</a></h2>
+</section>
+<section id="more-induction">
+<span id="id1"></span><h2><span class="section-number">5.4. </span>More Induction<a class="headerlink" href="#more-induction" title="Link to this heading">&#61633;</a></h2>
+<p>In <a class="reference internal" href="#section-induction-and-recursion"><span class="std std-numref">Section 5.2</span></a>, we saw how to define the factorial function by
+recursion on the natural numbers.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span> <span class="n">fac</span> <span class="o">:</span> <span class="n">&#8469;</span> <span class="bp">&#8594;</span> <span class="n">&#8469;</span>
+  <span class="bp">|</span> <span class="mi">0</span> <span class="bp">=&gt;</span> <span class="mi">1</span>
+  <span class="bp">|</span> <span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span> <span class="bp">=&gt;</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">)</span> <span class="bp">*</span> <span class="n">fac</span> <span class="n">n</span>
+</pre></div>
+</div>
+<p>We also saw how to prove theorems using the <code class="docutils literal notranslate"><span class="pre">induction'</span></code> tactic.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">theorem</span> <span class="n">fac_pos</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="mi">0</span> <span class="bp">&lt;</span> <span class="n">fac</span> <span class="n">n</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">induction&#39;</span> <span class="n">n</span> <span class="k">with</span> <span class="n">n</span> <span class="n">ih</span>
+  <span class="bp">&#183;</span> <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+    <span class="n">exact</span> <span class="n">zero_lt_one</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+  <span class="n">exact</span> <span class="n">mul_pos</span> <span class="n">n.succ_pos</span> <span class="n">ih</span>
+</pre></div>
+</div>
+<section id="induction">
+<h3><span class="section-number">5.4.1. </span><code class="docutils literal notranslate"><span class="pre">induction</span></code><a class="headerlink" href="#induction" title="Link to this heading">&#61633;</a></h3>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">induction</span></code> tactic (without the prime tick mark) allows for more structured syntax.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="mi">0</span> <span class="bp">&lt;</span> <span class="n">fac</span> <span class="n">n</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">induction</span> <span class="n">n</span>
+  <span class="n">case</span> <span class="n">zero</span> <span class="bp">=&gt;</span>
+    <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+    <span class="n">exact</span> <span class="n">zero_lt_one</span>
+  <span class="n">case</span> <span class="n">succ</span> <span class="n">n&#39;</span> <span class="n">ih</span> <span class="bp">=&gt;</span>
+    <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+    <span class="n">exact</span> <span class="n">mul_pos</span> <span class="n">n&#39;.succ_pos</span> <span class="n">ih</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="mi">0</span> <span class="bp">&lt;</span> <span class="n">fac</span> <span class="n">n</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">induction</span> <span class="n">n</span> <span class="k">with</span>
+  <span class="bp">|</span> <span class="n">zero</span> <span class="bp">=&gt;</span>
+    <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+    <span class="n">exact</span> <span class="n">zero_lt_one</span>
+  <span class="bp">|</span> <span class="n">succ</span> <span class="n">n</span> <span class="n">ih</span> <span class="bp">=&gt;</span>
+    <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+    <span class="n">exact</span> <span class="n">mul_pos</span> <span class="n">n.succ_pos</span> <span class="n">ih</span>
+</pre></div>
+</div>
+</section>
+<section id="more-ways-to-define-use-inductions">
+<h3><span class="section-number">5.4.2. </span>More Ways to Define/Use Inductions<a class="headerlink" href="#more-ways-to-define-use-inductions" title="Link to this heading">&#61633;</a></h3>
+<p>We can even prove a theorem (with the same notation) <strong>as if we are defining a recursive function</strong>.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">theorem</span> <span class="n">fac_pos&#39;</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">n</span><span class="o">,</span> <span class="mi">0</span> <span class="bp">&lt;</span> <span class="n">fac</span> <span class="n">n</span>  <span class="c1">-- we insert ``&#8704; n``; also the absence of ``:=``</span>
+  <span class="bp">|</span> <span class="mi">0</span> <span class="bp">=&gt;</span> <span class="kd">by</span>  <span class="c1">-- by</span>
+    <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+    <span class="n">exact</span> <span class="n">zero_lt_one</span>
+  <span class="bp">|</span> <span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span> <span class="bp">=&gt;</span> <span class="kd">by</span>  <span class="c1">-- by</span>
+    <span class="n">rw</span> <span class="o">[</span><span class="n">fac</span><span class="o">]</span>
+    <span class="c1">-- as if the theorem itself is a recursive function of n</span>
+    <span class="n">exact</span> <span class="n">mul_pos</span> <span class="n">n.succ_pos</span> <span class="o">(</span><span class="n">fac_pos&#39;</span> <span class="n">n</span><span class="o">)</span>  <span class="c1">-- we make a recursive call for the inductive step</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>We can also define the Fibonacci function with multiple base cases:</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">@[simp]</span> <span class="kd">def</span> <span class="n">fib</span> <span class="o">:</span> <span class="n">&#8469;</span> <span class="bp">&#8594;</span> <span class="n">&#8469;</span>
+  <span class="bp">|</span> <span class="mi">0</span> <span class="bp">=&gt;</span> <span class="mi">0</span>
+  <span class="bp">|</span> <span class="mi">1</span> <span class="bp">=&gt;</span> <span class="mi">1</span>
+  <span class="bp">|</span> <span class="n">n</span> <span class="bp">+</span> <span class="mi">2</span> <span class="bp">=&gt;</span> <span class="n">fib</span> <span class="n">n</span> <span class="bp">+</span> <span class="n">fib</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&#64;[simp]</span></code> annotation means that the simplifier will use the defining equations.
+You can also apply them by writing <code class="docutils literal notranslate"><span class="pre">rw</span> <span class="pre">[fib]</span></code>.
+Below it will be helpful to give a name to the <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">+</span> <span class="pre">2</span></code> case.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">theorem</span> <span class="n">fib_add_two</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="n">fib</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">2</span><span class="o">)</span> <span class="bp">=</span> <span class="n">fib</span> <span class="n">n</span> <span class="bp">+</span> <span class="n">fib</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">:=</span> <span class="n">rfl</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="n">fib</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">2</span><span class="o">)</span> <span class="bp">=</span> <span class="n">fib</span> <span class="n">n</span> <span class="bp">+</span> <span class="n">fib</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span> <span class="n">rw</span> <span class="o">[</span><span class="n">fib</span><span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Using Lean&#8217;s computational interpretation, we can evaluate the Fibonacci numbers.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="k">#eval</span> <span class="n">fib</span> <span class="mi">6</span>
+<span class="c1">-- ``|&gt;``: forward pipe operator</span>
+<span class="c1">-- ``x |&gt; f`` means &#8220;take x and apply f to it&#8221;, i.e., f x.</span>
+<span class="k">#eval</span> <span class="n">List.range</span> <span class="mi">20</span> <span class="bp">|&gt;.</span><span class="n">map</span> <span class="n">fib</span>  <span class="c1">-- ``(List.range 20).map fib`` or ``List.map fib (List.range 20)``</span>
+</pre></div>
+</div>
+</section>
+<section id="tail-recursive">
+<h3><span class="section-number">5.4.3. </span>Tail-Recursive<a class="headerlink" href="#tail-recursive" title="Link to this heading">&#61633;</a></h3>
+<p>The straightforward implementation of <code class="docutils literal notranslate"><span class="pre">fib</span></code> is computationally inefficient: It runs in time exponential in its argument.</p>
+<p><strong>Tail-Recursive</strong> defines recursion with pattern matching, running time is linear in <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span> <span class="n">fib&#39;</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:</span> <span class="n">Nat</span> <span class="o">:=</span>
+  <span class="c1">-- pattern:</span>
+  <span class="c1">-- aux remaining #recursions, F(0), F(1)</span>
+  <span class="c1">-- aux remaining #recursions, value we should return, next value we should return</span>
+  <span class="n">aux</span> <span class="n">n</span> <span class="mi">0</span> <span class="mi">1</span>  <span class="c1">-- aux is just a name, choose whatever you want</span>
+<span class="n">where</span> <span class="n">aux</span>  <span class="c1">-- ``where`` implements ``aux`` by defining rules for matching patterns</span>
+  <span class="bp">|</span> <span class="mi">0</span><span class="o">,</span>   <span class="n">x</span><span class="o">,</span> <span class="n">_</span> <span class="bp">=&gt;</span> <span class="n">x</span>
+  <span class="bp">|</span> <span class="n">n</span><span class="bp">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span> <span class="bp">=&gt;</span> <span class="n">aux</span> <span class="n">n</span> <span class="n">y</span> <span class="o">(</span><span class="n">x</span> <span class="bp">+</span> <span class="n">y</span><span class="o">)</span>  <span class="c1">-- after each recursion, we count--, and shift (x, y) to (y, x + y)</span>
+
+
+<span class="kd">def</span> <span class="n">fib&#39;&#39;</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span><span class="o">)</span> <span class="o">:</span> <span class="n">Nat</span> <span class="o">:=</span>
+  <span class="n">aux</span> <span class="n">n</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span>
+<span class="n">where</span> <span class="n">aux</span>
+  <span class="bp">|</span> <span class="mi">0</span><span class="o">,</span>   <span class="n">x</span><span class="o">,</span> <span class="n">_</span><span class="o">,</span> <span class="n">_</span> <span class="bp">=&gt;</span> <span class="n">x</span>
+  <span class="bp">|</span> <span class="mi">1</span><span class="o">,</span>   <span class="n">_</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">_</span> <span class="bp">=&gt;</span> <span class="n">y</span>
+  <span class="bp">|</span> <span class="n">n</span><span class="bp">+</span><span class="mi">1</span><span class="o">,</span> <span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">z</span> <span class="bp">=&gt;</span> <span class="n">aux</span> <span class="n">n</span> <span class="n">y</span> <span class="n">z</span> <span class="o">(</span><span class="n">x</span> <span class="bp">+</span> <span class="n">y</span> <span class="bp">+</span> <span class="n">z</span><span class="o">)</span>
+
+<span class="k">#eval</span> <span class="n">fib&#39;</span> <span class="mi">10000</span>
+<span class="k">#eval</span> <span class="n">fib&#39;&#39;</span> <span class="mi">5</span>
+
+<span class="kd">theorem</span> <span class="n">fib&#39;.aux_eq</span> <span class="o">(</span><span class="n">m</span> <span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">:</span> <span class="n">fib&#39;.aux</span> <span class="n">n</span> <span class="o">(</span><span class="n">fib</span> <span class="n">m</span><span class="o">)</span> <span class="o">(</span><span class="n">fib</span> <span class="o">(</span><span class="n">m</span> <span class="bp">+</span> <span class="mi">1</span><span class="o">))</span> <span class="bp">=</span> <span class="n">fib</span> <span class="o">(</span><span class="n">n</span> <span class="bp">+</span> <span class="n">m</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">induction</span> <span class="n">n</span> <span class="n">generalizing</span> <span class="n">m</span> <span class="k">with</span>  <span class="c1">-- ``induction ... with`` will intro hypo ``ih`` in the succ case</span>
+  <span class="bp">|</span> <span class="n">zero</span> <span class="bp">=&gt;</span> <span class="n">simp</span> <span class="o">[</span><span class="n">fib&#39;.aux</span><span class="o">]</span>
+  <span class="c1">-- ``generalizing m`` inserts ``&#8704; m`` in front of ``ih``</span>
+  <span class="bp">|</span> <span class="n">succ</span> <span class="n">n</span> <span class="n">ih</span> <span class="bp">=&gt;</span> <span class="n">rw</span> <span class="o">[</span><span class="n">fib&#39;.aux</span><span class="o">,</span> <span class="bp">&#8592;</span><span class="n">fib_add_two</span><span class="o">,</span> <span class="n">ih</span><span class="o">,</span> <span class="n">add_assoc</span><span class="o">,</span> <span class="n">add_comm</span> <span class="mi">1</span><span class="o">]</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="C04_Sets_and_Functions.html" class="btn btn-neutral float-left" title="4. Sets and Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="C06_Discrete_Mathematics.html" class="btn btn-neutral float-right" title="6. Discrete Mathematics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Jeremy Avigad, Patrick Massot. Modified, simplified, and annotated by Wuyang Chen. Text licensed under CC BY 4.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

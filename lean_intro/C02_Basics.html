@@ -1,0 +1,741 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Basics &mdash; Mathematics in Lean v4.19.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=0731ccc3" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=7048e04d"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Logic" href="C03_Logic.html" />
+    <link rel="prev" title="1. Introduction" href="C01_Introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Mathematics in Lean
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="C01_Introduction.html">1. Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#calculating-proof-steps-via-rewriting">2.1. Calculating Proof Steps via Rewriting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#proof-state">2.1.1. Proof State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scope-via-section-end">2.1.2. Scope via <code class="docutils literal notranslate"><span class="pre">`section</span> <span class="pre">...</span> <span class="pre">end`</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rw-thm-arg1-arg2">2.1.3. rw [<code class="docutils literal notranslate"><span class="pre">thm</span></code> arg&#8321; arg&#8322;]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calc-proof-term">2.1.4. calc (Proof Term)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#proving-basic-identities-in-ring-algebraic-structure">2.2. Proving Basic Identities in Ring Algebraic Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#namespace">2.2.1. Namespace</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implicit-and-explicit-arguments">2.2.2. Implicit and Explicit Arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ring-and-ring">2.2.3. Ring and ring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#have">2.2.4. have</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rfl">2.2.5. rfl</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-theorems-and-lemmas">2.3. Using Theorems and Lemmas</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apply">2.3.1. apply</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#linarith">2.3.2. linarith</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bi-implication">2.3.3. Bi-Implication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#norm-num">2.3.4. norm_num</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#search-mathlib-statements">2.3.5. Search Mathlib Statements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#min-max-gcd-lcm">2.4. min, max, &#8739;, .gcd, .lcm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#min-max">2.4.1. min, max</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#divisibility">2.4.2. Divisibility &#8739;</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gcd-lcm">2.4.3. .gcd, .lcm</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#proving-facts-about-algebraic-structures">2.5. Proving Facts about Algebraic Structures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="C03_Logic.html">3. Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C04_Sets_and_Functions.html">4. Sets and Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C05_Elementary_Number_Theory.html">5. Elementary Number Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C06_Discrete_Mathematics.html">6. Discrete Mathematics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C07_Structures.html">7. Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C08_Hierarchies.html">8. Hierarchies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C09_Groups_and_Rings.html">9. Groups and Rings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C10_Linear_Algebra.html">10. Linear algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C11_Topology.html">11. Topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C12_Differential_Calculus.html">12. Differential Calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="C13_Integration_and_Measure_Theory.html">13. Integration and Measure Theory</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Mathematics in Lean</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">2. </span>Basics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/C02_Basics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="basics">
+<span id="id1"></span><h1><span class="section-number">2. </span>Basics<a class="headerlink" href="#basics" title="Link to this heading">&#61633;</a></h1>
+<p>This chapter is designed to introduce you to the nuts and
+bolts of mathematical reasoning in Lean: calculating,
+applying lemmas and theorems,
+and reasoning about generic structures.</p>
+<section id="calculating-proof-steps-via-rewriting">
+<h2><span class="section-number">2.1. </span>Calculating Proof Steps via Rewriting<a class="headerlink" href="#calculating-proof-steps-via-rewriting" title="Link to this heading">&#61633;</a></h2>
+<section id="proof-state">
+<span id="index-0"></span><h3><span class="section-number">2.1.1. </span>Proof State<a class="headerlink" href="#proof-state" title="Link to this heading">&#61633;</a></h3>
+<ul class="simple" id="index-1">
+<li><p>Lean reports on the current <em>proof state</em> in the <em>Lean Infoview</em> window (click &#8704; button on the top-right of VS Code, then &#8220;Toggle InfoView&#8221;).</p></li>
+<li><p>Move cursor to see state at each proof step.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="n">goal</span>
+<span class="n">x</span> <span class="n">y</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">,</span>
+<span class="n">h&#8321;</span> <span class="o">:</span> <span class="n">Prime</span> <span class="n">x</span><span class="o">,</span>
+<span class="n">h&#8322;</span> <span class="o">:</span> <span class="bp">&#172;</span><span class="n">Even</span> <span class="n">x</span><span class="o">,</span>
+<span class="n">h&#8323;</span> <span class="o">:</span> <span class="n">y</span> <span class="bp">&gt;</span> <span class="n">x</span>
+<span class="bp">&#8866;</span> <span class="n">y</span> <span class="bp">&#8805;</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#8866;</span></code>: current proof goal to be proved.</p></li>
+<li><p>Lines before <code class="docutils literal notranslate"><span class="pre">&#8866;</span></code>: all current <em>context</em>, including objects (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>), assumptions/hypotheses (<code class="docutils literal notranslate"><span class="pre">h&#8321;</span></code>, <code class="docutils literal notranslate"><span class="pre">h&#8322;</span></code>, <code class="docutils literal notranslate"><span class="pre">h&#8323;</span></code>). Everything in the context is labelled with an identifier.</p>
+<ul>
+<li><p>Type subscripted labels as <code class="docutils literal notranslate"><span class="pre">h\1</span></code>, <code class="docutils literal notranslate"><span class="pre">h\2</span></code>, <code class="docutils literal notranslate"><span class="pre">h\3</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="scope-via-section-end">
+<h3><span class="section-number">2.1.2. </span>Scope via <code class="docutils literal notranslate"><span class="pre">`section</span> <span class="pre">...</span> <span class="pre">end`</span></code><a class="headerlink" href="#scope-via-section-end" title="Link to this heading">&#61633;</a></h3>
+<p>We can declare variables once within a scope defined in a <code class="docutils literal notranslate"><span class="pre">section</span> <span class="pre">...</span> <span class="pre">end</span></code> block.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kn">section</span>
+<span class="kd">variable</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span>
+
+<span class="k">#check</span> <span class="n">a</span>
+<span class="k">#check</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">a</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span>
+<span class="k">#check</span> <span class="n">mul_comm</span> <span class="n">a</span> <span class="n">b</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">mul_comm</span> <span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">a</span><span class="o">)</span>
+<span class="k">#check</span> <span class="n">mul_assoc</span> <span class="n">c</span> <span class="n">a</span> <span class="n">b</span>
+<span class="k">#check</span> <span class="n">mul_comm</span> <span class="n">a</span>
+<span class="k">#check</span> <span class="n">mul_comm</span>
+
+<span class="kd">end</span>
+</pre></div>
+</div>
+</section>
+<section id="rw-thm-arg1-arg2">
+<h3><span class="section-number">2.1.3. </span>rw [<code class="docutils literal notranslate"><span class="pre">thm</span></code> arg&#8321; arg&#8322;]<a class="headerlink" href="#rw-thm-arg1-arg2" title="Link to this heading">&#61633;</a></h3>
+<ul class="simple">
+<li><p>Use the left-hand side of <code class="docutils literal notranslate"><span class="pre">thm</span></code>&#8217;s identity to match patterns in your current proof goal, and replace matched patterns with the right-hand side of <code class="docutils literal notranslate"><span class="pre">thm</span></code>.</p></li>
+<li><p>You can use a left arrow (<code class="docutils literal notranslate"><span class="pre">\l</span></code>) to reverse an identity (i.e. go from right to left in the <code class="docutils literal notranslate"><span class="pre">thm</span></code> provided).</p>
+<ul>
+<li><p>For example, <code class="docutils literal notranslate"><span class="pre">rw</span> <span class="pre">[&#8592;</span> <span class="pre">mul_assoc</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">c]</span></code> replaces <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">(b</span> <span class="pre">*</span> <span class="pre">c)</span></code> by <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">b</span> <span class="pre">*</span> <span class="pre">c</span></code> in the current goal.</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-lean notranslate" id="index-2"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">c</span> <span class="bp">=</span> <span class="n">b</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">c</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_comm</span> <span class="n">a</span> <span class="n">b</span><span class="o">]</span>  <span class="c1">-- ``mul_comm a b`` implies ``a * b = b * a``</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_assoc</span> <span class="n">b</span> <span class="n">a</span> <span class="n">c</span><span class="o">]</span>  <span class="c1">-- ``mul_assoc a b c`` implies ``a * b * c = a * (b * c)``</span>
+</pre></div>
+</div>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">:</span> <span class="n">c</span> <span class="bp">*</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">=</span> <span class="n">b</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">c</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_comm</span> <span class="n">c</span> <span class="n">b</span><span class="o">]</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_assoc</span> <span class="n">b</span> <span class="n">c</span> <span class="n">a</span><span class="o">]</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_comm</span> <span class="n">a</span> <span class="n">c</span><span class="o">]</span>
+  <span class="c1">-- sorry</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">*</span> <span class="o">(</span><span class="n">b</span> <span class="bp">*</span> <span class="n">c</span><span class="o">)</span> <span class="bp">=</span> <span class="n">b</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">c</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="gr">sorry</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>If you just use <code class="docutils literal notranslate"><span class="pre">rw</span> <span class="pre">[thm]</span></code> without providing arguments <code class="docutils literal notranslate"><span class="pre">arg&#8321;</span></code> <code class="docutils literal notranslate"><span class="pre">arg&#8322;</span></code>, <code class="docutils literal notranslate"><span class="pre">rw</span></code> will try to match its left-hand side with the first pattern it can match in the goal.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">c</span> <span class="bp">=</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">c</span> <span class="bp">*</span> <span class="n">a</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_assoc</span><span class="o">]</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_comm</span><span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>You can also provide <em>partial</em> arguments. For example, <code class="docutils literal notranslate"><span class="pre">mul_comm</span> <span class="pre">a</span></code> matches any pattern of the form <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">?</span></code> and rewrites it to <code class="docutils literal notranslate"><span class="pre">?</span> <span class="pre">*</span> <span class="pre">a</span></code>.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">*</span> <span class="o">(</span><span class="n">b</span> <span class="bp">*</span> <span class="n">c</span><span class="o">)</span> <span class="bp">=</span> <span class="n">b</span> <span class="bp">*</span> <span class="o">(</span><span class="n">c</span> <span class="bp">*</span> <span class="n">a</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="c1">-- sorry  -- without providing any arguments at all</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_comm</span><span class="o">]</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_assoc</span><span class="o">]</span>
+
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">*</span> <span class="o">(</span><span class="n">b</span> <span class="bp">*</span> <span class="n">c</span><span class="o">)</span> <span class="bp">=</span> <span class="n">b</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">c</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="gr">sorry</span>  <span class="c1">-- with only one argument</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rw</span></code> can also take facts from the local context.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="n">d</span> <span class="n">e</span> <span class="n">f</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">c</span> <span class="bp">*</span> <span class="n">d</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#39;</span> <span class="o">:</span> <span class="n">e</span> <span class="bp">=</span> <span class="n">f</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">*</span> <span class="o">(</span><span class="n">b</span> <span class="bp">*</span> <span class="n">e</span><span class="o">)</span> <span class="bp">=</span> <span class="n">c</span> <span class="bp">*</span> <span class="o">(</span><span class="n">d</span> <span class="bp">*</span> <span class="n">f</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">h&#39;</span><span class="o">]</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="bp">&#8592;</span> <span class="n">mul_assoc</span><span class="o">]</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">h</span><span class="o">]</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_assoc</span><span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Multiple rewrite commands can be chained and carried out in a single command, by listing identities separated by commas.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="n">d</span> <span class="n">e</span> <span class="n">f</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">c</span> <span class="bp">*</span> <span class="n">d</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#39;</span> <span class="o">:</span> <span class="n">e</span> <span class="bp">=</span> <span class="n">f</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">*</span> <span class="o">(</span><span class="n">b</span> <span class="bp">*</span> <span class="n">e</span><span class="o">)</span> <span class="bp">=</span> <span class="n">c</span> <span class="bp">*</span> <span class="o">(</span><span class="n">d</span> <span class="bp">*</span> <span class="n">f</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">h&#39;</span><span class="o">,</span> <span class="bp">&#8592;</span> <span class="n">mul_assoc</span><span class="o">,</span> <span class="n">h</span><span class="o">,</span> <span class="n">mul_assoc</span><span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple" id="index-3">
+<li><p>Rewrite in a specific assumption via <code class="docutils literal notranslate"><span class="pre">rw</span> <span class="pre">[thm</span> <span class="pre">arg]</span> <span class="pre">at</span> <span class="pre">hyp</span></code>.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="n">d</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">(</span><span class="n">hyp</span> <span class="o">:</span> <span class="n">c</span> <span class="bp">=</span> <span class="n">d</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="o">(</span><span class="n">hyp&#39;</span> <span class="o">:</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">d</span><span class="o">)</span> <span class="o">:</span> <span class="n">c</span> <span class="bp">=</span> <span class="mi">2</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">d</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">hyp&#39;</span><span class="o">]</span> <span class="n">at</span> <span class="n">hyp</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_comm</span> <span class="n">d</span> <span class="n">a</span><span class="o">]</span> <span class="n">at</span> <span class="n">hyp</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="bp">&#8592;</span> <span class="n">two_mul</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">d</span><span class="o">)]</span> <span class="n">at</span> <span class="n">hyp</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="bp">&#8592;</span> <span class="n">mul_assoc</span> <span class="mi">2</span> <span class="n">a</span> <span class="n">d</span><span class="o">]</span> <span class="n">at</span> <span class="n">hyp</span>
+  <span class="n">exact</span> <span class="n">hyp</span>  <span class="c1">-- ``hyp`` matches the goal exactly</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nth_rw</span></code> : replace only particular instances of an expression in the goal. Possible matches are enumerated starting with 1.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">c</span><span class="o">)</span> <span class="o">:</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">c</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">c</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">nth_rw</span> <span class="mi">2</span> <span class="o">[</span><span class="n">h</span><span class="o">]</span>  <span class="c1">-- replaces the second occurrence of ``a + b`` with ``c``</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">add_mul</span><span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="calc-proof-term">
+<h3><span class="section-number">2.1.4. </span>calc (Proof Term)<a class="headerlink" href="#calc-proof-term" title="Link to this heading">&#61633;</a></h3>
+<p>Chained <code class="docutils literal notranslate"><span class="pre">rw</span></code> could make the proof progress hard to read:</p>
+<div class="highlight-lean notranslate" id="index-4"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">:</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="mi">2</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">b</span><span class="o">)</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_add</span><span class="o">,</span> <span class="n">add_mul</span><span class="o">,</span> <span class="n">add_mul</span><span class="o">]</span>  <span class="c1">-- distributivity of multiplication over addition</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="bp">&#8592;</span> <span class="n">add_assoc</span><span class="o">,</span> <span class="n">add_assoc</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">a</span><span class="o">)]</span>  <span class="c1">-- associativity of addition</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">mul_comm</span> <span class="n">b</span> <span class="n">a</span><span class="o">,</span> <span class="bp">&#8592;</span> <span class="n">two_mul</span><span class="o">]</span>  <span class="c1">-- ``2 * a = a + a``</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Lean provides a more structured way of writing proofs using the <code class="docutils literal notranslate"><span class="pre">calc</span></code> <em>proof term</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">calc</span></code> is not a tactic: no need <code class="docutils literal notranslate"><span class="pre">by</span></code> after <code class="docutils literal notranslate"><span class="pre">:=</span></code>.</p></li>
+<li><p>Lean uses indentation to determine the begin and end of a block (tactics, <code class="docutils literal notranslate"><span class="pre">calc</span></code>, etc.).</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">:</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="mi">2</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">b</span><span class="o">)</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">b</span> <span class="o">:=</span>
+  <span class="k">calc</span>
+    <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">b</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">b</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span>
+      <span class="n">rw</span> <span class="o">[</span><span class="n">mul_add</span><span class="o">,</span> <span class="n">add_mul</span><span class="o">,</span> <span class="n">add_mul</span><span class="o">]</span>
+    <span class="n">_</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="o">(</span><span class="n">b</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">b</span><span class="o">)</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span>  <span class="c1">-- _ is a placehold for the RHS in previous step</span>
+      <span class="n">rw</span> <span class="o">[</span><span class="bp">&#8592;</span> <span class="n">add_assoc</span><span class="o">,</span> <span class="n">add_assoc</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">a</span><span class="o">)]</span>
+    <span class="n">_</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="mi">2</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">b</span><span class="o">)</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span>
+      <span class="n">rw</span> <span class="o">[</span><span class="n">mul_comm</span> <span class="n">b</span> <span class="n">a</span><span class="o">,</span> <span class="bp">&#8592;</span> <span class="n">two_mul</span><span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">calc</span></code> helps first outline with <code class="docutils literal notranslate"><span class="pre">sorry</span></code>, then justify individual steps using tactics.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">:</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="mi">2</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">b</span><span class="o">)</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">b</span> <span class="o">:=</span>
+  <span class="k">calc</span>
+    <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">b</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">b</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span>
+      <span class="gr">sorry</span>
+    <span class="n">_</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="o">(</span><span class="n">b</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">b</span><span class="o">)</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span>
+      <span class="gr">sorry</span>
+    <span class="n">_</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="mi">2</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">b</span><span class="o">)</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span>
+      <span class="gr">sorry</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="proving-basic-identities-in-ring-algebraic-structure">
+<span id="proving-identities-in-algebraic-structures"></span><h2><span class="section-number">2.2. </span>Proving Basic Identities in Ring Algebraic Structure<a class="headerlink" href="#proving-basic-identities-in-ring-algebraic-structure" title="Link to this heading">&#61633;</a></h2>
+<section id="namespace">
+<h3><span class="section-number">2.2.1. </span>Namespace<a class="headerlink" href="#namespace" title="Link to this heading">&#61633;</a></h3>
+<ul class="simple" id="index-5">
+<li><p>When a definition or theorem <code class="docutils literal notranslate"><span class="pre">foo</span></code> is introduced in a <em>namespace</em> <code class="docutils literal notranslate"><span class="pre">bar</span></code>, its full name is <code class="docutils literal notranslate"><span class="pre">bar.foo</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">bar</span></code> later <em>opens</em> the namespace and allows us to use the shorter name <code class="docutils literal notranslate"><span class="pre">foo</span></code>.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kn">namespace</span> <span class="n">MyRing</span>
+<span class="kd">variable</span> <span class="o">{</span><span class="n">R</span> <span class="o">:</span> <span class="kt">Type</span><span class="bp">*</span><span class="o">}</span> <span class="o">[</span><span class="n">Ring</span> <span class="n">R</span><span class="o">]</span>
+
+<span class="kd">theorem</span> <span class="n">add_zero</span> <span class="o">(</span><span class="n">a</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">+</span> <span class="mi">0</span> <span class="bp">=</span> <span class="n">a</span> <span class="o">:=</span> <span class="kd">by</span> <span class="n">rw</span> <span class="o">[</span><span class="n">add_comm</span><span class="o">,</span> <span class="n">zero_add</span><span class="o">]</span>
+
+<span class="kd">theorem</span> <span class="n">add_neg_cancel</span> <span class="o">(</span><span class="n">a</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">+</span> <span class="bp">-</span><span class="n">a</span> <span class="bp">=</span> <span class="mi">0</span> <span class="o">:=</span> <span class="kd">by</span> <span class="n">rw</span> <span class="o">[</span><span class="n">add_comm</span><span class="o">,</span> <span class="n">neg_add_cancel</span><span class="o">]</span>
+
+<span class="k">#check</span> <span class="n">MyRing.add_zero</span>
+<span class="k">#check</span> <span class="n">add_zero</span>
+
+<span class="kd">end</span> <span class="n">MyRing</span>
+
+<span class="k">#check</span> <span class="n">add_zero</span>
+</pre></div>
+</div>
+</section>
+<section id="implicit-and-explicit-arguments">
+<h3><span class="section-number">2.2.2. </span>Implicit and Explicit Arguments<a class="headerlink" href="#implicit-and-explicit-arguments" title="Link to this heading">&#61633;</a></h3>
+<ul class="simple" id="index-6">
+<li><p>&#8220;Parentheses&#8221; (R : Type*) &#8212; explicit parameter; you must supply R when you use the enclosing definition.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span> <span class="n">idR</span> <span class="o">(</span><span class="n">R</span> <span class="o">:</span> <span class="kt">Type</span><span class="bp">*</span><span class="o">)</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span> <span class="o">:</span> <span class="n">R</span> <span class="o">:=</span> <span class="n">x</span>
+<span class="k">#check</span> <span class="n">idR</span> <span class="n">Nat</span> <span class="mi">3</span>                   <span class="c1">-- R given positionally</span>
+<span class="k">#check</span> <span class="n">idR</span> <span class="o">(</span><span class="n">List</span> <span class="n">String</span><span class="o">)</span> <span class="o">[</span><span class="s2">&quot;hi&quot;</span><span class="o">]</span>    <span class="c1">-- R given positionally</span>
+<span class="k">#check</span> <span class="n">idR</span> <span class="o">(</span><span class="n">R</span> <span class="o">:=</span> <span class="n">Nat</span><span class="o">)</span> <span class="mi">3</span>            <span class="c1">-- R given by name (same effect)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>&#8220;Curly Braces&#8221; {R : Type*} &#8212; implicit parameter; Lean will try to infer it from later arguments.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">def</span> <span class="n">dup</span> <span class="o">{</span><span class="n">R</span> <span class="o">:</span> <span class="kt">Type</span><span class="bp">*</span><span class="o">}</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span> <span class="o">:</span> <span class="n">R</span> <span class="bp">&#215;</span> <span class="n">R</span> <span class="o">:=</span> <span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">x</span><span class="o">)</span>
+
+<span class="k">#check</span> <span class="n">dup</span> <span class="mi">5</span>                       <span class="c1">-- infers R = Nat</span>
+<span class="k">#check</span> <span class="n">dup</span> <span class="o">(</span><span class="n">R</span> <span class="o">:=</span> <span class="n">String</span><span class="o">)</span> <span class="s2">&quot;hi&quot;</span>      <span class="c1">-- give the implicit explicitly</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>&#8220;Square brackets&#8221; [Ring R] &#8212; instance-implicit; Lean must find via type-class search.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="c1">-- needs +, *, 0, 1, etc., so we ask for a (semi)ring instance</span>
+<span class="kd">def</span> <span class="n">square</span> <span class="o">{</span><span class="n">R</span> <span class="o">:</span> <span class="kt">Type</span><span class="bp">*</span><span class="o">}</span> <span class="o">[</span><span class="n">Semiring</span> <span class="n">R</span><span class="o">]</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span> <span class="o">:</span> <span class="n">R</span> <span class="o">:=</span> <span class="n">x</span> <span class="bp">*</span> <span class="n">x</span>
+
+<span class="k">#check</span> <span class="n">square</span> <span class="mi">5</span>                    <span class="c1">-- R = Nat; uses the built-in Semiring Nat</span>
+<span class="k">#check</span> <span class="n">square</span> <span class="o">(</span><span class="n">R</span> <span class="o">:=</span> <span class="n">Int</span><span class="o">)</span> <span class="mi">7</span>         <span class="c1">-- pick the type; instance found automatically</span>
+
+<span class="c1">-- If Lean can&#39;t find an instance, provide one locally:</span>
+<span class="kn">section</span>
+  <span class="kd">structure</span> <span class="n">Weird</span> <span class="n">where</span> <span class="n">n</span> <span class="o">:</span> <span class="n">Nat</span>
+  <span class="kd">instance</span> <span class="o">:</span> <span class="n">Semiring</span> <span class="n">Weird</span> <span class="o">:=</span> <span class="kd">by</span>
+    <span class="gr">sorry</span>
+  <span class="k">#check</span> <span class="n">square</span> <span class="o">(</span><span class="n">R</span> <span class="o">:=</span> <span class="n">Weird</span><span class="o">)</span> <span class="o">&#10216;</span><span class="mi">3</span><span class="o">&#10217;</span>
+<span class="kd">end</span>
+</pre></div>
+</div>
+</section>
+<section id="ring-and-ring">
+<h3><span class="section-number">2.2.3. </span>Ring and ring<a class="headerlink" href="#ring-and-ring" title="Link to this heading">&#61633;</a></h3>
+<p id="index-7"><strong>Ring</strong> consists of:
+a collection of objects <span class="math notranslate nohighlight">\(R\)</span>,
+operations <span class="math notranslate nohighlight">\(+\)</span> <span class="math notranslate nohighlight">\(\times\)</span>,
+constants <span class="math notranslate nohighlight">\(0\)</span> <span class="math notranslate nohighlight">\(1\)</span>,
+and the negation operation <span class="math notranslate nohighlight">\(x \mapsto -x\)</span> such that:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(R\)</span> with <span class="math notranslate nohighlight">\(+\)</span> is an <em>abelian group</em>, with <span class="math notranslate nohighlight">\(0\)</span>
+as the additive identity and negation as inverse.</p></li>
+<li><p>Multiplication is associative with identity <span class="math notranslate nohighlight">\(1\)</span>,
+and multiplication distributes over addition.</p></li>
+</ul>
+<p>If we define a collection of objects of a <em>type</em> <code class="docutils literal notranslate"><span class="pre">R</span></code> and a generic ring structure on <code class="docutils literal notranslate"><span class="pre">R</span></code>,
+the ring axioms are as follows:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">variable</span> <span class="o">(</span><span class="n">R</span> <span class="o">:</span> <span class="kt">Type</span><span class="bp">*</span><span class="o">)</span> <span class="o">[</span><span class="n">Ring</span> <span class="n">R</span><span class="o">]</span>
+
+<span class="k">#check</span> <span class="o">(</span><span class="n">add_assoc</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">R</span><span class="o">,</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">+</span> <span class="n">c</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">+</span> <span class="o">(</span><span class="n">b</span> <span class="bp">+</span> <span class="n">c</span><span class="o">))</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">add_comm</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">R</span><span class="o">,</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">b</span> <span class="bp">+</span> <span class="n">a</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">zero_add</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">a</span> <span class="o">:</span> <span class="n">R</span><span class="o">,</span> <span class="mi">0</span> <span class="bp">+</span> <span class="n">a</span> <span class="bp">=</span> <span class="n">a</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">neg_add_cancel</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">a</span> <span class="o">:</span> <span class="n">R</span><span class="o">,</span> <span class="bp">-</span><span class="n">a</span> <span class="bp">+</span> <span class="n">a</span> <span class="bp">=</span> <span class="mi">0</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">mul_assoc</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">R</span><span class="o">,</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">c</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="o">(</span><span class="n">b</span> <span class="bp">*</span> <span class="n">c</span><span class="o">))</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">mul_one</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">a</span> <span class="o">:</span> <span class="n">R</span><span class="o">,</span> <span class="n">a</span> <span class="bp">*</span> <span class="mi">1</span> <span class="bp">=</span> <span class="n">a</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">one_mul</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">a</span> <span class="o">:</span> <span class="n">R</span><span class="o">,</span> <span class="mi">1</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">=</span> <span class="n">a</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">mul_add</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">R</span><span class="o">,</span> <span class="n">a</span> <span class="bp">*</span> <span class="o">(</span><span class="n">b</span> <span class="bp">+</span> <span class="n">c</span><span class="o">)</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">b</span> <span class="bp">+</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">c</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">add_mul</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">R</span><span class="o">,</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">*</span> <span class="n">c</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">c</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">c</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Any theorem about rings can be applied to concrete rings (e.g. integers, <code class="docutils literal notranslate"><span class="pre">&#8484;</span></code>, rational numbers, <code class="docutils literal notranslate"><span class="pre">&#8474;</span></code>,
+complex numbers <code class="docutils literal notranslate"><span class="pre">&#8450;</span></code>),
+and any instance of an abstract structure that extends rings (e.g. any ordered ring or any field).</p>
+<ul class="simple" id="index-8">
+<li><p><code class="docutils literal notranslate"><span class="pre">ring</span></code> tactic proves equivalence b/w LHS and RHS by operations supported by Ring.</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">ring</span></code> tactic is imported indirectly when we import <code class="docutils literal notranslate"><span class="pre">Mathlib.Data.Real.Basic</span></code>. It can be imported explicitly with the command <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">Mathlib.Tactic</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<p>If we further declare <code class="docutils literal notranslate"><span class="pre">R</span></code> to be a <em>commutative</em> ring via <code class="docutils literal notranslate"><span class="pre">CommRing</span></code>,
+then we can support commutative multiplication on <code class="docutils literal notranslate"><span class="pre">&#8477;</span></code>:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">variable</span> <span class="o">(</span><span class="n">R</span> <span class="o">:</span> <span class="kt">Type</span><span class="bp">*</span><span class="o">)</span> <span class="o">[</span><span class="n">CommRing</span> <span class="n">R</span><span class="o">]</span>
+<span class="kd">variable</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="n">d</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span>
+
+<span class="kd">example</span> <span class="o">:</span> <span class="n">c</span> <span class="bp">*</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">=</span> <span class="n">b</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">c</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span> <span class="n">ring</span>
+
+<span class="kd">example</span> <span class="o">:</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="mi">2</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">*</span> <span class="n">b</span><span class="o">)</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">*</span> <span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span> <span class="n">ring</span>
+
+<span class="kd">example</span> <span class="o">:</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">*</span> <span class="o">(</span><span class="n">a</span> <span class="bp">-</span> <span class="n">b</span><span class="o">)</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">^</span> <span class="mi">2</span> <span class="bp">-</span> <span class="n">b</span> <span class="bp">^</span> <span class="mi">2</span> <span class="o">:=</span> <span class="kd">by</span> <span class="n">ring</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">hyp</span> <span class="o">:</span> <span class="n">c</span> <span class="bp">=</span> <span class="n">d</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="o">(</span><span class="n">hyp&#39;</span> <span class="o">:</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">d</span><span class="o">)</span> <span class="o">:</span> <span class="n">c</span> <span class="bp">=</span> <span class="mi">2</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">*</span> <span class="n">d</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">hyp</span><span class="o">,</span> <span class="n">hyp&#39;</span><span class="o">]</span>
+  <span class="n">ring</span>
+</pre></div>
+</div>
+<p>Here is a useful theorem:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">theorem</span> <span class="n">neg_add_cancel_left</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span> <span class="o">:</span> <span class="bp">-</span><span class="n">a</span> <span class="bp">+</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="bp">=</span> <span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="bp">&#8592;</span> <span class="n">add_assoc</span><span class="o">,</span> <span class="n">neg_add_cancel</span><span class="o">,</span> <span class="n">zero_add</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Prove the companion version:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">theorem</span> <span class="n">add_neg_cancel_right</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">+</span> <span class="bp">-</span><span class="n">b</span> <span class="bp">=</span> <span class="n">a</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="gr">sorry</span>
+</pre></div>
+</div>
+<p>Use these to prove the following:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">theorem</span> <span class="n">add_left_cancel</span> <span class="o">{</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">R</span><span class="o">}</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">c</span><span class="o">)</span> <span class="o">:</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">c</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="gr">sorry</span>
+
+<span class="kd">theorem</span> <span class="n">add_right_cancel</span> <span class="o">{</span><span class="n">a</span> <span class="n">b</span> <span class="n">c</span> <span class="o">:</span> <span class="n">R</span><span class="o">}</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">c</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">=</span> <span class="n">c</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="gr">sorry</span>
+</pre></div>
+</div>
+</section>
+<section id="have">
+<h3><span class="section-number">2.2.4. </span>have<a class="headerlink" href="#have" title="Link to this heading">&#61633;</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">have</span></code> introduce a new (intermediate, auxiliary) hypothesis h during the proof</p>
+<ul>
+<li><p>After we prove this intermediate hypothesis, we can feel free to use it for further proofs</p></li>
+</ul>
+</li>
+</ul>
+<p id="index-10"><span id="index-9"></span>let us show that <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">*</span> <span class="pre">0</span> <span class="pre">=</span> <span class="pre">0</span></code>
+follows from the ring axioms.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">theorem</span> <span class="n">mul_zero</span> <span class="o">(</span><span class="n">a</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">*</span> <span class="mi">0</span> <span class="bp">=</span> <span class="mi">0</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="k">have</span> <span class="n">h</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">*</span> <span class="mi">0</span> <span class="bp">+</span> <span class="n">a</span> <span class="bp">*</span> <span class="mi">0</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">*</span> <span class="mi">0</span> <span class="bp">+</span> <span class="mi">0</span> <span class="o">:=</span> <span class="kd">by</span>  <span class="c1">-- ``have`` introduce a new (intermediate) hypothesis h</span>
+    <span class="n">rw</span> <span class="o">[</span><span class="bp">&#8592;</span> <span class="n">mul_add</span><span class="o">,</span> <span class="n">add_zero</span><span class="o">,</span> <span class="n">add_zero</span><span class="o">]</span>  <span class="c1">-- indentation: sub-proof for the new goal.</span>
+  <span class="c1">-- we now feel free to use h</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">add_left_cancel</span> <span class="n">h</span><span class="o">]</span>  <span class="c1">-- ``apply add_left_cancel h`` or ``exact add_left_cancel h`` also works</span>
+</pre></div>
+</div>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">theorem</span> <span class="n">zero_mul</span> <span class="o">(</span><span class="n">a</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span> <span class="o">:</span> <span class="mi">0</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">=</span> <span class="mi">0</span> <span class="o">:=</span> <span class="kd">by</span>  <span class="c1">-- multiplication is not assumed to be commutative</span>
+  <span class="gr">sorry</span>
+</pre></div>
+</div>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">theorem</span> <span class="n">neg_eq_of_add_eq_zero</span> <span class="o">{</span><span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">R</span><span class="o">}</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">:</span> <span class="bp">-</span><span class="n">a</span> <span class="bp">=</span> <span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="gr">sorry</span>
+
+<span class="kd">theorem</span> <span class="n">eq_neg_of_add_eq_zero</span> <span class="o">{</span><span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">R</span><span class="o">}</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">b</span> <span class="bp">=</span> <span class="mi">0</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">=</span> <span class="bp">-</span><span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="gr">sorry</span>
+
+<span class="kd">theorem</span> <span class="n">neg_zero</span> <span class="o">:</span> <span class="o">(</span><span class="bp">-</span><span class="mi">0</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span> <span class="bp">=</span> <span class="mi">0</span> <span class="o">:=</span> <span class="kd">by</span>  <span class="c1">-- have to distinguish -0 in the arg by specifying its type</span>
+  <span class="n">apply</span> <span class="n">neg_eq_of_add_eq_zero</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">add_zero</span><span class="o">]</span>
+
+<span class="kd">theorem</span> <span class="n">neg_neg</span> <span class="o">(</span><span class="n">a</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span> <span class="o">:</span> <span class="bp">-</span> <span class="bp">-</span><span class="n">a</span> <span class="bp">=</span> <span class="n">a</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="gr">sorry</span>
+</pre></div>
+</div>
+</section>
+<section id="rfl">
+<h3><span class="section-number">2.2.5. </span>rfl<a class="headerlink" href="#rfl" title="Link to this heading">&#61633;</a></h3>
+<p>In Lean, subtraction in a ring is provably equal to
+addition of the additive inverse.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">R</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">-</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">+</span> <span class="bp">-</span><span class="n">b</span> <span class="o">:=</span>
+  <span class="n">sub_eq_add_neg</span> <span class="n">a</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>On the real numbers, it is <em>defined</em> that way:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">-</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">a</span> <span class="bp">+</span> <span class="bp">-</span><span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rfl</span>
+</pre></div>
+</div>
+<p id="index-11">The proof term <code class="docutils literal notranslate"><span class="pre">rfl</span></code> is short for &#8220;reflexivity&#8221;.
+The <code class="docutils literal notranslate"><span class="pre">rfl</span></code> tactic forces Lean
+to unfold the definition and recognize both sides as being the same, i.e. <em>definitional equality</em>.</p>
+</section>
+</section>
+<section id="using-theorems-and-lemmas">
+<span id="id2"></span><h2><span class="section-number">2.3. </span>Using Theorems and Lemmas<a class="headerlink" href="#using-theorems-and-lemmas" title="Link to this heading">&#61633;</a></h2>
+<section id="apply">
+<span id="index-12"></span><h3><span class="section-number">2.3.1. </span>apply<a class="headerlink" href="#apply" title="Link to this heading">&#61633;</a></h3>
+<p>Consider the library theorems <code class="docutils literal notranslate"><span class="pre">le_refl</span></code> and <code class="docutils literal notranslate"><span class="pre">le_trans</span></code>:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="k">#check</span> <span class="o">(</span><span class="n">le_refl</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">a</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">,</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">a</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">le_trans</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span> <span class="bp">&#8594;</span> <span class="n">b</span> <span class="bp">&#8804;</span> <span class="n">c</span> <span class="bp">&#8594;</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">c</span><span class="o">)</span>  <span class="c1">-- should be interpreted as ``a &#8804; b &#8594; (b &#8804; c &#8594; a &#8804; c)``</span>
+<span class="c1">-- P &#8594; Q &#8594; R means P &#8594; (Q &#8594; R), i.e., a function taking a proof of P and returning a function that,</span>
+<span class="c1">-- given a proof of Q, produces a proof of R</span>
+</pre></div>
+</div>
+<ul class="simple" id="index-13">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">apply</span></code> tactic: 1) takes a statement as the argument; 2) <strong>tries to match the statement&#8217;s conclusion with your current goal</strong>; 3) <strong>leaves the hypotheses, if any, as new goals</strong>.</p></li>
+<li><p>If the given proof matches the goal exactly (modulo <em>definitional</em> equality), you can use the <code class="docutils literal notranslate"><span class="pre">exact</span></code> tactic instead of <code class="docutils literal notranslate"><span class="pre">apply</span></code>.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#8320;</span> <span class="o">:</span> <span class="n">x</span> <span class="bp">&#8804;</span> <span class="n">y</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#8321;</span> <span class="o">:</span> <span class="n">y</span> <span class="bp">&#8804;</span> <span class="n">z</span><span class="o">)</span> <span class="o">:</span> <span class="n">x</span> <span class="bp">&#8804;</span> <span class="n">z</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">apply</span> <span class="n">le_trans</span>  <span class="c1">-- leaves two goals</span>
+  <span class="c1">-- &#183; &#8220;start to focus on a new tactic block for the next goal&#8221;</span>
+  <span class="bp">&#183;</span> <span class="n">apply</span> <span class="n">h&#8320;</span>
+  <span class="bp">&#183;</span> <span class="n">apply</span> <span class="n">h&#8321;</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#8320;</span> <span class="o">:</span> <span class="n">x</span> <span class="bp">&#8804;</span> <span class="n">y</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#8321;</span> <span class="o">:</span> <span class="n">y</span> <span class="bp">&#8804;</span> <span class="n">z</span><span class="o">)</span> <span class="o">:</span> <span class="n">x</span> <span class="bp">&#8804;</span> <span class="n">z</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">apply</span> <span class="n">le_trans</span> <span class="n">h&#8320;</span>
+  <span class="n">apply</span> <span class="n">h&#8321;</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="o">:</span> <span class="n">x</span> <span class="bp">&#8804;</span> <span class="n">x</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">apply</span> <span class="n">le_refl</span>
+</pre></div>
+</div>
+<p>Here are a few more library theorems:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="k">#check</span> <span class="o">(</span><span class="n">le_refl</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">a</span><span class="o">,</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">a</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">le_trans</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span> <span class="bp">&#8594;</span> <span class="n">b</span> <span class="bp">&#8804;</span> <span class="n">c</span> <span class="bp">&#8594;</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">c</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">lt_of_le_of_lt</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span> <span class="bp">&#8594;</span> <span class="n">b</span> <span class="bp">&lt;</span> <span class="n">c</span> <span class="bp">&#8594;</span> <span class="n">a</span> <span class="bp">&lt;</span> <span class="n">c</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">lt_of_lt_of_le</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&lt;</span> <span class="n">b</span> <span class="bp">&#8594;</span> <span class="n">b</span> <span class="bp">&#8804;</span> <span class="n">c</span> <span class="bp">&#8594;</span> <span class="n">a</span> <span class="bp">&lt;</span> <span class="n">c</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">lt_trans</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&lt;</span> <span class="n">b</span> <span class="bp">&#8594;</span> <span class="n">b</span> <span class="bp">&lt;</span> <span class="n">c</span> <span class="bp">&#8594;</span> <span class="n">a</span> <span class="bp">&lt;</span> <span class="n">c</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Use them together with <code class="docutils literal notranslate"><span class="pre">apply</span></code> and <code class="docutils literal notranslate"><span class="pre">exact</span></code> to prove the following:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">h&#8320;</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#8321;</span> <span class="o">:</span> <span class="n">b</span> <span class="bp">&lt;</span> <span class="n">c</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#8322;</span> <span class="o">:</span> <span class="n">c</span> <span class="bp">&#8804;</span> <span class="n">d</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#8323;</span> <span class="o">:</span> <span class="n">d</span> <span class="bp">&lt;</span> <span class="n">e</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&lt;</span> <span class="n">e</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="gr">sorry</span>
+</pre></div>
+</div>
+</section>
+<section id="linarith">
+<h3><span class="section-number">2.3.2. </span>linarith<a class="headerlink" href="#linarith" title="Link to this heading">&#61633;</a></h3>
+<ul class="simple" id="index-14">
+<li><p><code class="docutils literal notranslate"><span class="pre">linarith</span></code> can prove the problem above automatically using equations and inequalities <em>in the context</em> by <em>linear arithmetic</em>:</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">h&#8320;</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#8321;</span> <span class="o">:</span> <span class="n">b</span> <span class="bp">&lt;</span> <span class="n">c</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#8322;</span> <span class="o">:</span> <span class="n">c</span> <span class="bp">&#8804;</span> <span class="n">d</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#8323;</span> <span class="o">:</span> <span class="n">d</span> <span class="bp">&lt;</span> <span class="n">e</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&lt;</span> <span class="n">e</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">linarith</span>
+</pre></div>
+</div>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="mi">2</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="mi">3</span> <span class="bp">*</span> <span class="n">b</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#39;</span> <span class="o">:</span> <span class="mi">1</span> <span class="bp">&#8804;</span> <span class="n">a</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#39;&#39;</span> <span class="o">:</span> <span class="n">d</span> <span class="bp">=</span> <span class="mi">2</span><span class="o">)</span> <span class="o">:</span> <span class="n">d</span> <span class="bp">+</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="mi">5</span> <span class="bp">*</span> <span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">linarith</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">linarith</span></code> can also use additional inequalities passed as arguments (see the example below).</p></li>
+</ul>
+</section>
+<section id="bi-implication">
+<h3><span class="section-number">2.3.3. </span>Bi-Implication<a class="headerlink" href="#bi-implication" title="Link to this heading">&#61633;</a></h3>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="mi">1</span> <span class="bp">&#8804;</span> <span class="n">a</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#39;</span> <span class="o">:</span> <span class="n">b</span> <span class="bp">&#8804;</span> <span class="n">c</span><span class="o">)</span> <span class="o">:</span> <span class="mi">2</span> <span class="bp">+</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">exp</span> <span class="n">b</span> <span class="bp">&#8804;</span> <span class="mi">3</span> <span class="bp">*</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">exp</span> <span class="n">c</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="c1">-- exp_le_exp: rexp x &#8804; rexp y &#8596; x &#8804; y</span>
+  <span class="n">linarith</span> <span class="o">[</span><span class="n">exp_le_exp.mpr</span> <span class="n">h&#39;</span><span class="o">]</span>  <span class="c1">-- .mpr (&#8220;modus ponens reverse&#8221;) is a function derived</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Some theorems like <code class="docutils literal notranslate"><span class="pre">exp_le_exp</span></code>, <code class="docutils literal notranslate"><span class="pre">exp_lt_exp</span></code> use a <em>bi-implication</em>, implying &#8220;if and only if&#8221; (<code class="docutils literal notranslate"><span class="pre">\lr</span></code> or <code class="docutils literal notranslate"><span class="pre">\iff</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">h.mp</span></code> establishes the forward direction, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&#8594;</span> <span class="pre">B</span></code>, and <code class="docutils literal notranslate"><span class="pre">h.mpr</span></code> establishes the reverse direction, <code class="docutils literal notranslate"><span class="pre">B</span> <span class="pre">&#8594;</span> <span class="pre">A</span></code>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">mp</span></code> stands for &#8220;modus ponens&#8221; and <code class="docutils literal notranslate"><span class="pre">mpr</span></code> stands for &#8220;modus ponens reverse.&#8221;</p></li>
+<li><p>You can also use <code class="docutils literal notranslate"><span class="pre">h.1</span></code> and <code class="docutils literal notranslate"><span class="pre">h.2</span></code> for <code class="docutils literal notranslate"><span class="pre">h.mp</span></code> and <code class="docutils literal notranslate"><span class="pre">h.mpr</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span><span class="o">)</span> <span class="o">:</span> <span class="n">exp</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">exp</span> <span class="n">b</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">rw</span> <span class="o">[</span><span class="n">exp_le_exp</span><span class="o">]</span>
+  <span class="n">exact</span> <span class="n">h</span>
+</pre></div>
+</div>
+<p id="index-15">Here are some more theorems in the library that can be used to establish
+inequalities on the real numbers.</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="k">#check</span> <span class="o">(</span><span class="n">exp_le_exp</span> <span class="o">:</span> <span class="n">exp</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">exp</span> <span class="n">b</span> <span class="bp">&#8596;</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">exp_lt_exp</span> <span class="o">:</span> <span class="n">exp</span> <span class="n">a</span> <span class="bp">&lt;</span> <span class="n">exp</span> <span class="n">b</span> <span class="bp">&#8596;</span> <span class="n">a</span> <span class="bp">&lt;</span> <span class="n">b</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">log_le_log</span> <span class="o">:</span> <span class="mi">0</span> <span class="bp">&lt;</span> <span class="n">a</span> <span class="bp">&#8594;</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span> <span class="bp">&#8594;</span> <span class="n">log</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">log</span> <span class="n">b</span><span class="o">)</span>
+<span class="c1">-- #check (log_lt_log : 0 &lt; a &#8594; a &lt; b &#8594; log a &lt; log b)</span>
+<span class="c1">-- #check (add_le_add : a &#8804; b &#8594; c &#8804; d &#8594; a + c &#8804; b + d)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">add_le_add_left</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span> <span class="bp">&#8594;</span> <span class="bp">&#8704;</span> <span class="n">c</span><span class="o">,</span> <span class="n">c</span> <span class="bp">+</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">c</span> <span class="bp">+</span> <span class="n">b</span><span class="o">)</span>
+<span class="c1">-- #check (add_le_add_right : a &#8804; b &#8594; &#8704; c, a + c &#8804; b + c)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">add_lt_add_of_le_of_lt</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span> <span class="bp">&#8594;</span> <span class="n">c</span> <span class="bp">&lt;</span> <span class="n">d</span> <span class="bp">&#8594;</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">c</span> <span class="bp">&lt;</span> <span class="n">b</span> <span class="bp">+</span> <span class="n">d</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">add_lt_add_of_lt_of_le</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&lt;</span> <span class="n">b</span> <span class="bp">&#8594;</span> <span class="n">c</span> <span class="bp">&#8804;</span> <span class="n">d</span> <span class="bp">&#8594;</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">c</span> <span class="bp">&lt;</span> <span class="n">b</span> <span class="bp">+</span> <span class="n">d</span><span class="o">)</span>
+<span class="c1">-- #check (add_lt_add_left : a &lt; b &#8594; &#8704; c, c + a &lt; c + b)</span>
+<span class="c1">-- #check (add_lt_add_right : a &lt; b &#8594; &#8704; c, a + c &lt; b + c)</span>
+<span class="c1">-- #check (add_nonneg : 0 &#8804; a &#8594; 0 &#8804; b &#8594; 0 &#8804; a + b)</span>
+<span class="c1">-- #check (add_pos : 0 &lt; a &#8594; 0 &lt; b &#8594; 0 &lt; a + b)</span>
+<span class="c1">-- #check (add_pos_of_pos_of_nonneg : 0 &lt; a &#8594; 0 &#8804; b &#8594; 0 &lt; a + b)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">exp_pos</span> <span class="o">:</span> <span class="bp">&#8704;</span> <span class="n">a</span><span class="o">,</span> <span class="mi">0</span> <span class="bp">&lt;</span> <span class="n">exp</span> <span class="n">a</span><span class="o">)</span>
+<span class="c1">-- #check add_le_add_left</span>
+</pre></div>
+</div>
+<p>Thus the following proof works:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">h&#8320;</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#8321;</span> <span class="o">:</span> <span class="n">c</span> <span class="bp">&lt;</span> <span class="n">d</span><span class="o">)</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">+</span> <span class="n">exp</span> <span class="n">c</span> <span class="bp">+</span> <span class="n">e</span> <span class="bp">&lt;</span> <span class="n">b</span> <span class="bp">+</span> <span class="n">exp</span> <span class="n">d</span> <span class="bp">+</span> <span class="n">e</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">apply</span> <span class="n">add_lt_add_of_lt_of_le</span>
+  <span class="bp">&#183;</span> <span class="n">apply</span> <span class="n">add_lt_add_of_le_of_lt</span> <span class="n">h&#8320;</span>
+    <span class="n">apply</span> <span class="n">exp_lt_exp.mpr</span> <span class="n">h&#8321;</span>
+  <span class="n">apply</span> <span class="n">le_refl</span>
+</pre></div>
+</div>
+</section>
+<section id="norm-num">
+<h3><span class="section-number">2.3.4. </span>norm_num<a class="headerlink" href="#norm-num" title="Link to this heading">&#61633;</a></h3>
+<ul class="simple" id="index-16">
+<li><p><code class="docutils literal notranslate"><span class="pre">norm_num</span></code> tactic can be used to solve concrete numeric goals.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">:</span> <span class="o">(</span><span class="mi">0</span> <span class="o">:</span> <span class="n">&#8477;</span><span class="o">)</span> <span class="bp">&lt;</span> <span class="mi">1</span> <span class="o">:=</span> <span class="kd">by</span> <span class="n">norm_num</span>  <span class="c1">-- ``norm_num`` tactic can solve concrete numeric goals</span>
+</pre></div>
+</div>
+</section>
+<section id="search-mathlib-statements">
+<h3><span class="section-number">2.3.5. </span>Search Mathlib Statements<a class="headerlink" href="#search-mathlib-statements" title="Link to this heading">&#61633;</a></h3>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">h&#8320;</span> <span class="o">:</span> <span class="n">d</span> <span class="bp">&#8804;</span> <span class="n">e</span><span class="o">)</span> <span class="o">:</span> <span class="n">c</span> <span class="bp">+</span> <span class="n">exp</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">d</span><span class="o">)</span> <span class="bp">&#8804;</span> <span class="n">c</span> <span class="bp">+</span> <span class="n">exp</span> <span class="o">(</span><span class="n">a</span> <span class="bp">+</span> <span class="n">e</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span> <span class="gr">sorry</span>
+
+<span class="kd">example</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span><span class="o">)</span> <span class="o">:</span> <span class="n">log</span> <span class="o">(</span><span class="mi">1</span> <span class="bp">+</span> <span class="n">exp</span> <span class="n">a</span><span class="o">)</span> <span class="bp">&#8804;</span> <span class="n">log</span> <span class="o">(</span><span class="mi">1</span> <span class="bp">+</span> <span class="n">exp</span> <span class="n">b</span><span class="o">)</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="k">have</span> <span class="n">h&#8320;</span> <span class="o">:</span> <span class="mi">0</span> <span class="bp">&lt;</span> <span class="mi">1</span> <span class="bp">+</span> <span class="n">exp</span> <span class="n">a</span> <span class="o">:=</span> <span class="kd">by</span> <span class="gr">sorry</span>
+  <span class="n">apply</span> <span class="n">log_le_log</span> <span class="n">h&#8320;</span>
+  <span class="gr">sorry</span>
+</pre></div>
+</div>
+<p>As you meet more complex problems, you will find it necessary to search library theorems instead of always memorizing them.
+There are a number of strategies you can use:</p>
+<ul class="simple">
+<li><p>Search box on Mathlib documentation
+<a class="reference external" href="https://leanprover-community.github.io/mathlib4_docs/index.html">web pages</a>.</p></li>
+<li><p><a class="reference external" href="https://loogle.lean-lang.org">Loogle</a> and <a class="reference external" href="https://www.leanfinder.org/">Lean Finder</a>
+to search Lean and Mathlib definitions and theorems by patterns.</p></li>
+<li><p>You can use the <code class="docutils literal notranslate"><span class="pre">apply?</span></code> tactic,
+which tries to find the relevant theorem in the library.</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">:</span> <span class="mi">0</span> <span class="bp">&#8804;</span> <span class="n">a</span> <span class="bp">^</span> <span class="mi">2</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="c1">-- apply?</span>
+  <span class="n">exact</span> <span class="n">sq_nonneg</span> <span class="n">a</span>
+</pre></div>
+</div>
+<p>To try out <code class="docutils literal notranslate"><span class="pre">apply?</span></code> in this example,
+delete the <code class="docutils literal notranslate"><span class="pre">exact</span></code> command and uncomment the previous line.
+Using these tricks,
+see if you can find what you need to do the
+next example:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">h</span> <span class="o">:</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">b</span><span class="o">)</span> <span class="o">:</span> <span class="n">c</span> <span class="bp">-</span> <span class="n">exp</span> <span class="n">b</span> <span class="bp">&#8804;</span> <span class="n">c</span> <span class="bp">-</span> <span class="n">exp</span> <span class="n">a</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">refine</span> <span class="n">tsub_le_tsub</span> <span class="bp">?</span><span class="n">_</span> <span class="bp">?</span><span class="n">_</span>
+  <span class="c1">-- sorry</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="min-max-gcd-lcm">
+<span id="more-on-order-and-divisibility"></span><h2><span class="section-number">2.4. </span>min, max, &#8739;, .gcd, .lcm<a class="headerlink" href="#min-max-gcd-lcm" title="Link to this heading">&#61633;</a></h2>
+<section id="min-max">
+<h3><span class="section-number">2.4.1. </span>min, max<a class="headerlink" href="#min-max" title="Link to this heading">&#61633;</a></h3>
+<p id="index-17">The <code class="docutils literal notranslate"><span class="pre">min</span></code> function on the real numbers is uniquely characterized
+by the following three facts:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="k">#check</span> <span class="o">(</span><span class="n">min_le_left</span> <span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">min</span> <span class="n">a</span> <span class="n">b</span> <span class="bp">&#8804;</span> <span class="n">a</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">min_le_right</span> <span class="n">a</span> <span class="n">b</span> <span class="o">:</span> <span class="n">min</span> <span class="n">a</span> <span class="n">b</span> <span class="bp">&#8804;</span> <span class="n">b</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">le_min</span> <span class="o">:</span> <span class="n">c</span> <span class="bp">&#8804;</span> <span class="n">a</span> <span class="bp">&#8594;</span> <span class="n">c</span> <span class="bp">&#8804;</span> <span class="n">b</span> <span class="bp">&#8594;</span> <span class="n">c</span> <span class="bp">&#8804;</span> <span class="n">min</span> <span class="n">a</span> <span class="n">b</span><span class="o">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">min</span></code> is a function of type <code class="docutils literal notranslate"><span class="pre">&#8477;</span> <span class="pre">&#8594;</span> <span class="pre">&#8477;</span> <span class="pre">&#8594;</span> <span class="pre">&#8477;</span></code> and is interpreted as <code class="docutils literal notranslate"><span class="pre">&#8477;</span> <span class="pre">&#8594;</span> <span class="pre">(&#8477;</span> <span class="pre">&#8594;</span> <span class="pre">&#8477;)</span></code>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">a</span></code> has type <code class="docutils literal notranslate"><span class="pre">&#8477;</span> <span class="pre">&#8594;</span> <span class="pre">&#8477;</span></code> and <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">a</span> <span class="pre">b</span></code> has type <code class="docutils literal notranslate"><span class="pre">&#8477;</span></code></p></li>
+<li><p>Function application binds tighter than infix operations: <code class="docutils literal notranslate"><span class="pre">min</span> <span class="pre">a</span> <span class="pre">b</span> <span class="pre">+</span> <span class="pre">c</span></code> is interpreted as <code class="docutils literal notranslate"><span class="pre">(min</span> <span class="pre">a</span> <span class="pre">b)</span> <span class="pre">+</span> <span class="pre">c</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">:</span> <span class="n">min</span> <span class="n">a</span> <span class="n">b</span> <span class="bp">=</span> <span class="n">min</span> <span class="n">b</span> <span class="n">a</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">apply</span> <span class="n">le_antisymm</span>  <span class="c1">--  two real numbers are equal if each is less than or equal to the other</span>
+  <span class="bp">&#183;</span> <span class="k">show</span> <span class="n">min</span> <span class="n">a</span> <span class="n">b</span> <span class="bp">&#8804;</span> <span class="n">min</span> <span class="n">b</span> <span class="n">a</span>  <span class="c1">-- ``show`` t finds the first goal whose target unifies with t, such that to indicate what is being proved in each block</span>
+    <span class="n">apply</span> <span class="n">le_min</span>
+    <span class="bp">&#183;</span> <span class="n">apply</span> <span class="n">min_le_right</span>
+    <span class="n">apply</span> <span class="n">min_le_left</span>
+  <span class="bp">&#183;</span> <span class="k">show</span> <span class="n">min</span> <span class="n">b</span> <span class="n">a</span> <span class="bp">&#8804;</span> <span class="n">min</span> <span class="n">a</span> <span class="n">b</span>
+    <span class="n">apply</span> <span class="n">le_min</span>
+    <span class="bp">&#183;</span> <span class="n">apply</span> <span class="n">min_le_right</span>
+    <span class="n">apply</span> <span class="n">min_le_left</span>
+</pre></div>
+</div>
+</section>
+<section id="divisibility">
+<h3><span class="section-number">2.4.2. </span>Divisibility &#8739;<a class="headerlink" href="#divisibility" title="Link to this heading">&#61633;</a></h3>
+<ul class="simple" id="index-18">
+<li><p>a &#8739; b (typed as |) &#8220;a divides b&#8221; means that there exists <strong>some</strong> c such that b = a * c</p></li>
+</ul>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">example</span> <span class="o">(</span><span class="n">h&#8320;</span> <span class="o">:</span> <span class="n">x</span> <span class="bp">&#8739;</span> <span class="n">y</span><span class="o">)</span> <span class="o">(</span><span class="n">h&#8321;</span> <span class="o">:</span> <span class="n">y</span> <span class="bp">&#8739;</span> <span class="n">z</span><span class="o">)</span> <span class="o">:</span> <span class="n">x</span> <span class="bp">&#8739;</span> <span class="n">z</span> <span class="o">:=</span>
+  <span class="n">dvd_trans</span> <span class="n">h&#8320;</span> <span class="n">h&#8321;</span>
+
+<span class="kd">example</span> <span class="o">:</span> <span class="n">x</span> <span class="bp">&#8739;</span> <span class="n">y</span> <span class="bp">*</span> <span class="n">x</span> <span class="bp">*</span> <span class="n">z</span> <span class="o">:=</span> <span class="kd">by</span>
+  <span class="n">apply</span> <span class="n">dvd_mul_of_dvd_left</span>
+  <span class="n">apply</span> <span class="n">dvd_mul_left</span>
+</pre></div>
+</div>
+</section>
+<section id="gcd-lcm">
+<h3><span class="section-number">2.4.3. </span>.gcd, .lcm<a class="headerlink" href="#gcd-lcm" title="Link to this heading">&#61633;</a></h3>
+<p id="index-19">With respect to divisibility, the <em>greatest common divisor</em>,
+<code class="docutils literal notranslate"><span class="pre">gcd</span></code>, and least common multiple, <code class="docutils literal notranslate"><span class="pre">lcm</span></code>,
+are analogous to <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code>.
+Since every number divides <code class="docutils literal notranslate"><span class="pre">0</span></code>,
+<code class="docutils literal notranslate"><span class="pre">0</span></code> is really the greatest element with respect to divisibility:</p>
+<div class="highlight-lean notranslate"><div class="highlight"><pre><span></span><span class="kd">variable</span> <span class="o">(</span><span class="n">m</span> <span class="n">n</span> <span class="o">:</span> <span class="n">&#8469;</span><span class="o">)</span>
+
+<span class="k">#check</span> <span class="o">(</span><span class="n">Nat.gcd_zero_right</span> <span class="n">n</span> <span class="o">:</span> <span class="n">Nat.gcd</span> <span class="n">n</span> <span class="mi">0</span> <span class="bp">=</span> <span class="n">n</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">Nat.gcd_zero_left</span> <span class="n">n</span> <span class="o">:</span> <span class="n">Nat.gcd</span> <span class="mi">0</span> <span class="n">n</span> <span class="bp">=</span> <span class="n">n</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">Nat.lcm_zero_right</span> <span class="n">n</span> <span class="o">:</span> <span class="n">Nat.lcm</span> <span class="n">n</span> <span class="mi">0</span> <span class="bp">=</span> <span class="mi">0</span><span class="o">)</span>
+<span class="k">#check</span> <span class="o">(</span><span class="n">Nat.lcm_zero_left</span> <span class="n">n</span> <span class="o">:</span> <span class="n">Nat.lcm</span> <span class="mi">0</span> <span class="n">n</span> <span class="bp">=</span> <span class="mi">0</span><span class="o">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="proving-facts-about-algebraic-structures">
+<span id="id3"></span><h2><span class="section-number">2.5. </span>Proving Facts about Algebraic Structures<a class="headerlink" href="#proving-facts-about-algebraic-structures" title="Link to this heading">&#61633;</a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="C01_Introduction.html" class="btn btn-neutral float-left" title="1. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="C03_Logic.html" class="btn btn-neutral float-right" title="3. Logic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2025, Jeremy Avigad, Patrick Massot. Modified, simplified, and annotated by Wuyang Chen. Text licensed under CC BY 4.0.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
