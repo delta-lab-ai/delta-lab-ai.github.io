@@ -14,20 +14,20 @@ PI: Wuyang Chen, Assistant Professor (wuyang at sfu dot ca)\n
 
 
 # ~~~ Advertisement
-# 
+#
 # # *{{<font color="Red">Call for Papers!</font>}}*
 # # Are you working on foundation models for scientific problems?
-# 
+#
 # If you are attending NeurIPS 2024, you are welcome to join the following events:
-# 
+#
 # - SFU @ NeurIPS 2024 ([https://sites.google.com/view/sfu-at-neurips-2024 _link_]): Nine speakers from both academia and industry; three talks on three consecutive mornings 9am-11:30am (Dec. 11, 12, and 13).
 # - The 1st Workshop on Foundation Models for Science (FM4Science) at NeurIPS 2024 ([https://fm-science.github.io _link_]): A full-day event on Dec. 15.
-# 
+#
 # # The 1st Workshop on [https://fm-science.github.io _{{<font color="Red">Foundation Models for Science (FM4Science)</font>}}_] at NeurIPS 2024
 # # Abstract Deadline: Sep. 10, 2024 AOE
 # # Paper Submission Deadline: Sep. 13, 2024
 # # OpenReview: [https://openreview.net/group?id=NeurIPS.cc/2024/Workshop/FM4Science https://openreview.net/group?id=NeurIPS.cc/2024/Workshop/FM4Science]
-# 
+#
 # ~~~
 
 
@@ -38,19 +38,19 @@ PI: Wuyang Chen, Assistant Professor (wuyang at sfu dot ca)\n
 
 1. We *integrate AI methods with physics knowledge*.
 
-a) We build LLM for autoformalization, program synthesis, and reasoning on PDE control problems \[[https://arxiv.org/abs/2502.00963 _1_]];
+a) We build LLMs for autoformalization, program synthesis, and reasoning on PDE problems \[[https://arxiv.org/abs/2502.00963 _1_], [https://www.leanfinder.org/ _2_]].
 
-b) We develop neural operators \[[https://arxiv.org/abs/2402.15734 _2_]] for 3D reconstruction of real-world fluids \[[https://arxiv.org/abs/2412.13897 _3_]].
+b) We introduce physics into data-driven fluids modeling and reconstruction \[[https://hybridmpm.github.io/ _3_], [https://autumnyq.github.io/WildSmoke/ _4_], [https://arxiv.org/abs/2412.13897 _5_], [https://arxiv.org/abs/2402.15734 _6_]].
 
 2. We develop *principled deep learning methods*
-\[[https://www.nsf.gov/news/news_summ.jsp?cntn_id=304639&org=CISE _4_], [https://arxiv.org/abs/2102.11535 _5_], [https://openreview.net/forum?id=H94a1_Pyr-6 _6_], [https://arxiv.org/abs/2205.05662 _7_]]
+\[[https://www.nsf.gov/news/news_summ.jsp?cntn_id=304639&org=CISE _7_], [https://arxiv.org/abs/2102.11535 _8_], [https://openreview.net/forum?id=H94a1_Pyr-6 _9_], [https://arxiv.org/abs/2205.05662 _10_]]
 inspired by deep learning theory.
 
-3. We are broadly interested in LLM \[[https://arxiv.org/abs/2305.12281 _8_], [https://openreview.net/forum?id=6mLjDwYte5 _9_], [https://arxiv.org/abs/2410.04472 _10_]],
-computer vision \[[https://arxiv.org/abs/2404.07448 _11_], [https://arxiv.org/abs/2112.09747 _12_]],
-model efficiency \[[https://dl.acm.org/doi/10.1145/3510835 _13_], [https://arxiv.org/abs/2006.08198 _14_]],
-self-supervised learning \[[https://openreview.net/forum?id=F8whUO8HNbP _15_], [https://arxiv.org/abs/2007.06965 _16_]],
-automated machine learning (AutoML) \[[https://arxiv.org/abs/1912.10917 _17_]],
+3. We are broadly interested in LLM \[[https://arxiv.org/abs/2305.12281 _11_], [https://openreview.net/forum?id=6mLjDwYte5 _12_], [https://arxiv.org/abs/2410.04472 _13_]],
+computer vision \[[https://arxiv.org/abs/2404.07448 _14_], [https://arxiv.org/abs/2112.09747 _15_]],
+model efficiency \[[https://dl.acm.org/doi/10.1145/3510835 _16_], [https://arxiv.org/abs/2006.08198 _17_]],
+self-supervised learning \[[https://openreview.net/forum?id=F8whUO8HNbP _18_], [https://arxiv.org/abs/2007.06965 _19_]],
+automated machine learning (AutoML) \[[https://arxiv.org/abs/1912.10917 _20_]],
 etc.
 
 
@@ -64,7 +64,7 @@ We actively look for self-motivated and proactive students to join us. You are w
 # For Ph.D. applicants, please apply to the [https://www.sfu.ca/computing/prospective-students/graduate-students/admissions.html _CS @ SFU_] and mention the PI's name (Wuyang Chen) in your application.
 For Ph.D. applicants, please apply to the [https://www.sfu.ca/fas/study/future-graduates/programs/phd-computing.html _CS @ SFU_] and mention the PI's name (Wuyang Chen) in your application.
 
-# For prospective students or interns who want to work with me in short term, please fill out [ this form] so that we could find a suitable project for you. 
+# For prospective students or interns who want to work with me in short term, please fill out [ this form] so that we could find a suitable project for you.
 
 ~~~
 
