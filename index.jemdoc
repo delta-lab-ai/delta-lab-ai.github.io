@@ -13,27 +13,44 @@ PI: Wuyang Chen, Assistant Professor (wuyang at sfu dot ca)\n
 # {}{img_left}{images/wuyang_chen.jpg}{Wuyang Chen SFU}{173px}{225px}{images/wuyang_chen.jpg}
 
 
-# ~~~ Advertisement
-#
-# # *{{<font color="Red">Call for Papers!</font>}}*
-# # Are you working on foundation models for scientific problems?
-#
-# If you are attending NeurIPS 2024, you are welcome to join the following events:
-#
-# - SFU @ NeurIPS 2024 ([https://sites.google.com/view/sfu-at-neurips-2024 _link_]): Nine speakers from both academia and industry; three talks on three consecutive mornings 9am-11:30am (Dec. 11, 12, and 13).
-# - The 1st Workshop on Foundation Models for Science (FM4Science) at NeurIPS 2024 ([https://fm-science.github.io _link_]): A full-day event on Dec. 15.
-#
-# # The 1st Workshop on [https://fm-science.github.io _{{<font color="Red">Foundation Models for Science (FM4Science)</font>}}_] at NeurIPS 2024
-# # Abstract Deadline: Sep. 10, 2024 AOE
-# # Paper Submission Deadline: Sep. 13, 2024
-# # OpenReview: [https://openreview.net/group?id=NeurIPS.cc/2024/Workshop/FM4Science https://openreview.net/group?id=NeurIPS.cc/2024/Workshop/FM4Science]
-#
-# ~~~
+~~~ Advertisement
 
+*{{<font color="Red">Call for Papers!</font>}}*
+Are you working on foundation models for scientific problems?
+
+# If you are attending NeurIPS 2024, you are welcome to join the following events:
+
+# - SFU @ NeurIPS 2024 ([https://sites.google.com/view/sfu-at-neurips-2024 _link_]): Nine speakers from both academia and industry; three talks on three consecutive mornings 9am-11:30am (Dec. 11, 12, and 13).
+
+The 2nd Workshop on Foundation Models for Science (FM4Science) at ICLR 2026 ([https://fm-science.github.io _link_]): A full-day event on April 26 or 27.
+
+- Abstract Deadline: February 8, 2026 AOE
+- Paper Submission Deadline: February 10, 2026 AOE
+- OpenReview: [https://openreview.net/group?id=ICLR.cc/2026/Workshop/FM4Science _link_]
+
+~~~
+
+
+~~~ Advertisement
+
+*{{<font color="Red">Call for Papers!</font>}}*
+Are you working on 3D generation or reconstruction for scientific geometries?
+
+The 2nd Workshop on 3D Geometry Generation for Scientific Computing (3D4S) at CVPR 2026 ([https://3d4sworkshop.github.io/ _link_]): A half-day event on June 3 or 4.
+
+- Abstract Deadline: Feburary 28, 2026 AOE
+- Paper Submission Deadline: March 3, 2026 AOE
+- OpenReview: [https://openreview.net/group?id=thecvf.com/CVPR/2026/Workshop/3D4S _link_]
+
+~~~
 
 
 == Research Overview
 
+
+# We build infrastructures for formal maths: LLM tools + Formalizations of PDE topics
+
+# We work on functional visual intelligence with simulations
 
 
 1. We *integrate AI methods with physics knowledge*.
@@ -71,15 +88,22 @@ For Ph.D. applicants, please apply to the [https://www.sfu.ca/fas/study/future-g
 == News
 
 
-# UBC Talk 10/28
-# https://caida.ubc.ca/event/hybrid-learning-machines-bridge-ai-and-physical-modeling-wuyang-chen-assistant-professor
+# \href{https://www.siam.org/conferences-events/siam-conferences/uq26/}{SIAM Conference on Uncertainty Quantification (UQ26)} \hfill March 2026
 
 
-# UT Talk
-# https://oden.utexas.edu/news-and-events/events/2156---Wuyang%20Chen/
 
-# UCLA talk
-# https://www.cs.ucla.edu/upcoming-events/cs-201-wuyang-chen-simon-fraser-university/
+\[12/2025\]
+- Our ICLR 2026 workshop proposal, "[https://fm-science.github.io/ Foundation Models for Science]," is accepted. Please consider [https://fm-science.github.io/index.html\#cfp submitting] your great work to our workshop ([https://openreview.net/group?id=ICLR.cc/2026/Workshop/FM4Science OpenReview])!
+- Our CVPR 2026 workshop proposal, "[https://3d4sworkshop.github.io/ 3D Geometry Generation for Scientific Computing]," is accepted. Please consider [https://3d4sworkshop.github.io/index.html\#cfp submitting] your great work to our workshop ([https://openreview.net/group?id=thecvf.com/CVPR/2026/Workshop/3D4S OpenReview])!
+
+
+\[10-12\/2025\] Talks at
+[https://oden.utexas.edu/news-and-events/events/2156---Wuyang%20Chen/ Oden Institute @ UT Austin],
+[https://caida.ubc.ca/event/hybrid-learning-machines-bridge-ai-and-physical-modeling-wuyang-chen-assistant-professor CAIDA @ UBC] ([https://www.youtube.com/watch?v=5jwakDOja8E Video]),
+[https://docs.google.com/spreadsheets/d/19ErUw9HKc8H3T3_wR6WlQ-1R3juZr3sH/edit?gid=1523209602\#gid=1523209602&range=A134:D134 EECS 542 @ UMich],
+[https://purduepl.github.io/seminars.html PurPL @ Purdue],
+[https://ai-math-seminar.github.io/seminar/ AI-Math @ Rutgers]
+
 
 \[9/2025\] Dr. Chen is honored to receive the [https://www.nvidia.com/en-us/industries/higher-education-research/academic-grant-program/ 2025 Nvidia Academic Grant Award] on Physics-Informed Machine Learning.
 
@@ -102,6 +126,7 @@ For Ph.D. applicants, please apply to the [https://www.sfu.ca/fas/study/future-g
 \[1/2025\] 1 paper accepted in ICLR'2025
 
 \[12/2025\]\n
+# aaai nfh acceptance rate: 47/112
 - Dr. Chen is selcted by the [https://aaai.org/conference/aaai/aaai-25/new-faculty-highlights-program/ AAAI-2025 New Faculty Highlights program].
 - Our "[https://fm-science.github.io/ Foundation Models for Science]" workshop @ NeurIPS 2024 was a success! See [https://neurips.cc/virtual/2024/workshop/84714 video recordings] and [https://openreview.net/group?id=NeurIPS.cc/2024/Workshop/FM4Science accepted papers].
 
