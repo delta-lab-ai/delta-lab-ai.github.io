@@ -3,6 +3,23 @@
 # entry in the file named MENU to associate this page with.
 = Teaching
 
+
+
+
+== CMPT 420/728 Deep Learning (Spring 2026)
+- Syllabus: [https://docs.google.com/document/d/1TGjW3KyzLIpcbKuESX68ZqpBhi0WR3Yp6CRqGAd-_zg/edit?usp=sharing Google Doc]
+- Instructor: Wuyang Chen (wuyang@sfu.ca)
+- TAs: Qimin Chen (qca43@sfu.ca), Yizheng Xie (yxa153@sfu.ca)
+- Classroom: Mondays at AQ 3003, Wednesdays at SWH 10041
+- Time: Monday 14:30-16:20 pm, Wednesday 14:30-15:20 pm
+- Office Hour:
+-- Wuyang Chen: Wednesday 13:30-14:30 at [https://www.sfu.ca/fs/campus-maps/directory-of-buildings/technology---science-complex-11.html TASC1 9209] (Zoom: [https://sfu.zoom.us/my/wuyang {{https://sfu.zoom.us/my/wuyang}}])
+-- Qimin Chen: Wednesday 11am-noon @ ASB 9810 (Zoom: [https://sfu.zoom.us/j/9051564649 {{https://sfu.zoom.us/j/9051564649}}])
+-- Yizheng Xie: Thursday 2-3pm @ TASC1 8004 (Zoom: [https://sfu.zoom.us/j/82762359425?pwd=XuzqqbQcLpjENXOo3O4Bqo38ItelJp.1 {{https://sfu.zoom.us/j/82762359425?pwd=XuzqqbQcLpjENXOo3O4Bqo38ItelJp.1}}])
+- Canvas: [https://canvas.sfu.ca/courses/1268 {{https://canvas.sfu.ca/courses/1268}}]
+- Slack: [https://join.slack.com/t/cmpt420728dee-chl7399/shared_invite/zt-3mg0mvcvo-pqJbrkc_rwSUprMZnfMhZQ Invite Link]
+
+
 == CMPT 419/983 (D100\/G100) Fluid Simulation for Computer Graphics (Fall 2025)
 - Syllabus: [https://docs.google.com/document/d/1dLsxcdYR56br_4KcPSJyeyzk2wFCimxbQKXR1wEgzA4/edit?usp=sharing Google Doc]
 - Instructor: Wuyang Chen (wuyang@sfu.ca)
