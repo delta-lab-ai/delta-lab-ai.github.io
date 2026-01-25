@@ -25,6 +25,10 @@ ACM Transactions on Design Automation of Embedded Systems (TODAES), 2021. \[[htt
 
 # \[[ Paper]\] \[[ Code]\]
 
+- Y. Liu\*\#, J. Xu\#, M. Soroco\*, Y. Wei, *W. Chen*\n
+"Data-Efficient Inference of Neural Fluid Fields via SciML Foundation Model"\n
+3DV 2026. \[[https://arxiv.org/abs/2412.13897 Paper]\]
+
 - M. Soroco\*\#, J. Song\*\#, M. Xia, K. Emond\*, W. Sun, *W. Chen*\n
 "PDE-Controller: LLMs for Autoformalization and Reasoning of PDEs"\n
 ICML 2025. \[[https://arxiv.org/abs/2502.00963 Paper]\] \[[https://pde-controller.github.io/ Project Webpage]\] \[[https://youtu.be/mFbqkF7cZrk?si=CbHGNSm_oePyh5-y Video]\]
@@ -91,7 +95,7 @@ International Conference on Learning Representations (ICLR), 2022. \[[https://op
 
 - *W. Chen*, X. Gong, Z. Wang\n
 "Neural Architecture Search on ImageNet in Four GPU Hours: A Theoretically Inspired Perspective"\n
-International Conference on Learning Representations (ICLR), 2021. \[[https://openreview.net/forum?id=Cnon5ezMHtu Paper]\] \[[https://github.com/VITA-Group/TENAS Code]\] \[[https://www.nsf.gov/news/news_summ.jsp?cntn_id=304639&org=CISE NSF News]\] \[[https://www.ece.utexas.edu/news/researchers-develop-new-method-predict-and-optimize-performance-deep-learning-models UT ECE News]\] \[[https://chenwydj.github.io/projects/ICLR2021/TENAS.html Project Webpage]\]
+International Conference on Learning Representations (ICLR), 2021. \[[https://openreview.net/forum?id=Cnon5ezMHtu Paper]\] \[[https://github.com/VITA-Group/TENAS Code]\] \[[https://drive.google.com/file/d/1pV9KKHsRan6J8U6BtQ9oTp2c8uGIWxaA NSF News]\] \[[https://www.ece.utexas.edu/news/researchers-develop-new-method-predict-and-optimize-performance-deep-learning-models UT ECE News]\] \[[https://chenwydj.github.io/projects/ICLR2021/TENAS.html Project Webpage]\]
 
 - *W. Chen*, Z. Yu, S. Mello, S. Liu, J. Alvarez, Z. Wang, A. Anandkumar\n
 "Contrastive Syn-to-Real Generalization"\n
@@ -142,10 +146,6 @@ IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2019. (Oral) 
 - J. Xu\#, H. Huang\*\#, C. Zou, M. Savva, Y. Wei, *W. Chen*\n
 "Hybrid Neural-MPM for Interactive Fluid Simulations in Real-Time"\n
 /arXiv, 2505.18926/ \[[https://arxiv.org/abs/2505.18926 Paper]\]
-
-- Y. Liu\*\#, J. Xu\#, M. Soroco\*, Y. Wei, *W. Chen*\n
-"Data-Efficient Inference of Neural Fluid Fields via SciML Foundation Model"\n
-/arXiv, 2412.13897/ \[[https://arxiv.org/abs/2412.13897 Paper]\]
 
 - T. Wu\#, J. Wu\#, Z. Zhang, *W. Chen*\n
 "Training-free Design of Deep Networks as Ensembles of Clinical Experts"\n
