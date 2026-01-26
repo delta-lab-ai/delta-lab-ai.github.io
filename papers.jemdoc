@@ -25,6 +25,14 @@ ACM Transactions on Design Automation of Embedded Systems (TODAES), 2021. \[[htt
 
 # \[[ Paper]\] \[[ Code]\]
 
+- J. Lu\*, K. Emond, K. Yang, S. Chaudhuri, W. Sun, *W. Chen*\n
+"Lean Finder: Semantic Search for Mathlib That Understands User Intents"\n
+ICLR 2026. \[[https://arxiv.org/abs/2510.15940 Paper]\] \[[https://leanfinder.github.io/ Website]\]
+
+- S. Ma, M. M Zadeh, M. Soroco*, *W. Chen*, Jiguo Cao, Vijay Ganesh\n
+"Learning Data-Efficient and Generalizable Neural Operators via Fundamental Physics Knowledge"\n
+ICLR 2026. \[[https://ml4physicalsciences.github.io/2025/files/NeurIPS_ML4PS_2025_112.pdf Paper]\]
+
 - Y. Liu\*\#, J. Xu\#, M. Soroco\*, Y. Wei, *W. Chen*\n
 "Data-Efficient Inference of Neural Fluid Fields via SciML Foundation Model"\n
 3DV 2026. \[[https://arxiv.org/abs/2412.13897 Paper]\]
@@ -134,10 +142,6 @@ IEEE International Conference on Computer Vision (ICCV), 2019. \[[https://arxiv.
 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2019. (Oral) \[[https://arxiv.org/abs/1905.06368 Paper]\] \[[https://github.com/VITA-Group/GLNet Code]\]
 
 == Preprint
-
-- J. Lu\*, K. Emond, K. Yang, S. Chaudhuri, W. Sun, *W. Chen*\n
-"Lean Finder: Semantic Search for Mathlib That Understands User Intents"\n
-/arXiv, 2510.15940/ \[[https://arxiv.org/abs/2510.15940 Paper]\] \[[https://leanfinder.github.io/ Website]\]
 
 - Y. Liu\*, J. Song\*, M. Savva, *W. Chen*\n
 "WildSmoke: Ready-to-Use Dynamic 3D Smoke Assets from a Single Video in the Wild"\n
