@@ -25,6 +25,10 @@ ACM Transactions on Design Automation of Embedded Systems (TODAES), 2021. \[[htt
 
 # \[[ Paper]\] \[[ Code]\]
 
+- Y. Liu\*\#, J. Song\*\#, M. de Chanlatte, R. Chowdhury, R. Desai, *W. Chen*, D. Martin, M. Mahoney\n
+"FluidGaussian: Propagating Simulation-Based Uncertainty Toward Functionally-Intelligent 3D Reconstruction"\n
+CVPR 2026. \[[https://openreview.net/forum?id=YLtJkM7gxT Paper]\]
+
 - J. Lu\*, K. Emond, K. Yang, S. Chaudhuri, W. Sun, *W. Chen*\n
 "Lean Finder: Semantic Search for Mathlib That Understands User Intents"\n
 ICLR 2026. \[[https://arxiv.org/abs/2510.15940 Paper]\] \[[https://leanfinder.github.io/ Website]\]
