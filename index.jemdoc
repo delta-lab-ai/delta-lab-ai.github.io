@@ -3,8 +3,9 @@
 # entry in the file named MENU to associate this page with.
 = Welcome to the DeLTA Lab
 == "DeLTA": _D_esigning D_e_ep _L_earning in Principle: From _T_heory to _A_pplications\n
-PI: Wuyang Chen, Assistant Professor (wuyang at sfu dot ca)\n
-[https://www.sfu.ca/computing.html The School of Computing Science], [https://www.sfu.ca/ Simon Fraser University]
+PI: Wuyang Chen\n
+Assistant Professor, [https://www.sfu.ca/computing.html The School of Computing Science], [https://www.sfu.ca/ Simon Fraser University]\n
+Visiting Researcher, Microsoft Research
 
 ~~
 {}{img_left}{images/sfu2.jpeg}{SFU}{640px}{213px}{images/sfu2.jpeg}
@@ -94,9 +95,13 @@ For Ph.D. applicants, please apply to the [https://www.sfu.ca/fas/study/future-g
 
 # \href{https://www.siam.org/conferences-events/siam-conferences/uq26/}{SIAM Conference on Uncertainty Quantification (UQ26)} \hfill March 2026
 
-\[3/2026\] Dr. Chen will serve as an [https://jmlr.org/tmlr/editorial-board.html active editor] for [https://jmlr.org/tmlr/index.html TMLR].
+\[3/2026\]
+- Dr. Chen will serve as an [https://jmlr.org/tmlr/editorial-board.html active editor] for [https://jmlr.org/tmlr/index.html TMLR].
+- Dr. Chen received the Lambda's Research Grant.
 
-\[2/2026\] 1 paper and 1 findings accepted in CVPR 2026
+\[2/2026\]
+- 1 paper and 1 findings accepted in CVPR 2026.
+- Dr. Chen started as a visiting researcher at Microsoft Research.
 
 \[1/2026\]
 - Talk at AWS Neurosymbolics Team
