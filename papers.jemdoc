@@ -27,7 +27,11 @@ ACM Transactions on Design Automation of Embedded Systems (TODAES), 2021. \[[htt
 
 - Y. Liu\*\#, J. Song\*\#, M. de Chanlatte, R. Chowdhury, R. Desai, *W. Chen*, D. Martin, M. Mahoney\n
 "FluidGaussian: Propagating Simulation-Based Uncertainty Toward Functionally-Intelligent 3D Reconstruction"\n
-CVPR 2026. \[[https://openreview.net/forum?id=YLtJkM7gxT Paper]\]
+CVPR 2026. \[[https://arxiv.org/abs/2603.21356 Paper]\] \[[https://autumnyq.github.io/FluidGaussian/ Website]\]
+
+- M. Soroco\*, F. Pittaluga, Z. Tasneem, A. Aich, B. Zhuang, *W. Chen*, M. Chandraker, Z. Jiang\n
+"HorizonWeaver: Generalizable Multi-Level Semantic Editing for Driving Scenes"\n
+CVPR Findings 2026. \[[https://openreview.net/forum?id=2nJWCDn2VP Paper]\] \[[https://msoroco.github.io/horizonweaver/ Website]\]
 
 - J. Lu\*, K. Emond, K. Yang, S. Chaudhuri, W. Sun, *W. Chen*\n
 "Lean Finder: Semantic Search for Mathlib That Understands User Intents"\n
@@ -35,7 +39,7 @@ ICLR 2026. \[[https://arxiv.org/abs/2510.15940 Paper]\] \[[https://leanfinder.gi
 
 - S. Ma, M. M Zadeh, M. Soroco\*, *W. Chen*, Jiguo Cao, Vijay Ganesh\n
 "Learning Data-Efficient and Generalizable Neural Operators via Fundamental Physics Knowledge"\n
-ICLR 2026. \[[https://openreview.net/forum?id=mJiPqOzc3O Paper]\]
+ICLR 2026. \[[https://openreview.net/forum?id=mJiPqOzc3O Paper]\] \[[https://leanfinder.github.io/ Website]\]
 
 - Y. Liu\*\#, J. Xu\#, M. Soroco\*, Y. Wei, *W. Chen*\n
 "Data-Efficient Inference of Neural Fluid Fields via SciML Foundation Model"\n
