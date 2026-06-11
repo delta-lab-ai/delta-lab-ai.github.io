@@ -15,37 +15,37 @@ Visiting Researcher, Microsoft Research
 
 
 
-~~~ Advertisement
-
-*{{<font color="Red">Call for Papers!</font>}}*
-Are you working on 3D generation or reconstruction for scientific geometries?
-
-The 2nd Workshop on 3D Geometry Generation for Scientific Computing (3D4S) at CVPR 2026 ([https://3d4sworkshop.github.io/ _link_]): A half-day event on June 3 or 4.
-
-- Abstract Deadline: April 5, 2026 AOE
-- Paper Submission Deadline: April 7, 2026 AOE
-- OpenReview: [https://openreview.net/group?id=thecvf.com/CVPR/2026/Workshop/3D4S _link_]
-- *{{<font color="Red">Sponsorship</font>}}*: 1) Best Paper: 1 full CVPR registration; 2) Runner-up: 1 CVPR workshop registration.
-
-~~~
-
-
-~~~ Advertisement
-
+# ~~~ Advertisement
+#
 # *{{<font color="Red">Call for Papers!</font>}}*
-Are you working on foundation models for scientific problems?
+# Are you working on 3D generation or reconstruction for scientific geometries?
+#
+# The 2nd Workshop on 3D Geometry Generation for Scientific Computing (3D4S) at CVPR 2026 ([https://3d4sworkshop.github.io/ _link_]): A half-day event on June 3 or 4.
+#
+# - Abstract Deadline: April 5, 2026 AOE
+# - Paper Submission Deadline: April 7, 2026 AOE
+# - OpenReview: [https://openreview.net/group?id=thecvf.com/CVPR/2026/Workshop/3D4S _link_]
+# - *{{<font color="Red">Sponsorship</font>}}*: 1) Best Paper: 1 full CVPR registration; 2) Runner-up: 1 CVPR workshop registration.
+#
+# ~~~
 
+
+# ~~~ Advertisement
+#
+# *{{<font color="Red">Call for Papers!</font>}}*
+# Are you working on foundation models for scientific problems?
+#
 # If you are attending NeurIPS 2024, you are welcome to join the following events:
-
+#
 # - SFU @ NeurIPS 2024 ([https://sites.google.com/view/sfu-at-neurips-2024 _link_]): Nine speakers from both academia and industry; three talks on three consecutive mornings 9am-11:30am (Dec. 11, 12, and 13).
-
-Please join us! The 2nd Workshop on Foundation Models for Science (FM4Science) at ICLR 2026 ([https://fm-science.github.io _link_]): A full-day event on April 27.
-
+#
+# Please join us! The 2nd Workshop on Foundation Models for Science (FM4Science) at ICLR 2026 ([https://fm-science.github.io _link_]): A full-day event on April 27.
+#
 # - Abstract Deadline: February 8, 2026 AOE
 # - Paper Submission Deadline: February 10, 2026 AOE
 # - OpenReview: [https://openreview.net/group?id=ICLR.cc/2026/Workshop/FM4Science _link_]
-
-~~~
+#
+# ~~~
 
 
 
@@ -60,19 +60,19 @@ Please join us! The 2nd Workshop on Foundation Models for Science (FM4Science) a
 
 1. We *integrate AI methods with physics knowledge*.
 
-a) We build LLMs for autoformalization, program synthesis, and reasoning on PDE problems \[[https://arxiv.org/abs/2502.00963 _1_], [https://www.leanfinder.org/ _2_]].
+a) We build LLMs for autoformalization, program synthesis, and reasoning on PDE problems \[[https://arxiv.org/abs/2502.00963 _1_], [https://www.leanfinder.org/ _2_], [https://arxiv.org/abs/2605.20244 _3_]].
 
-b) We introduce physics into data-driven fluids modeling and reconstruction \[[https://hybridmpm.github.io/ _3_], [https://autumnyq.github.io/WildSmoke/ _4_], [https://arxiv.org/abs/2412.13897 _5_], [https://arxiv.org/abs/2402.15734 _6_]].
+b) We introduce physics into data-driven fluids modeling and reconstruction \[[https://arxiv.org/abs/2603.21356 _4_], [https://hybridmpm.github.io/ _5_], [https://autumnyq.github.io/WildSmoke/ _6_], [https://arxiv.org/abs/2412.13897 _7_], [https://arxiv.org/abs/2402.15734 _8_]].
 
 2. We develop *principled deep learning methods*
-\[[https://www.nsf.gov/news/news_summ.jsp?cntn_id=304639&org=CISE _7_], [https://arxiv.org/abs/2102.11535 _8_], [https://openreview.net/forum?id=H94a1_Pyr-6 _9_], [https://arxiv.org/abs/2205.05662 _10_]]
+\[[https://www.nsf.gov/news/news_summ.jsp?cntn_id=304639&org=CISE _9_], [https://arxiv.org/abs/2102.11535 _10_], [https://openreview.net/forum?id=H94a1_Pyr-6 _11_], [https://arxiv.org/abs/2205.05662 _12_]]
 inspired by deep learning theory.
 
-3. We are broadly interested in LLM \[[https://arxiv.org/abs/2305.12281 _11_], [https://openreview.net/forum?id=6mLjDwYte5 _12_], [https://arxiv.org/abs/2410.04472 _13_]],
-computer vision \[[https://arxiv.org/abs/2404.07448 _14_], [https://arxiv.org/abs/2112.09747 _15_]],
-model efficiency \[[https://dl.acm.org/doi/10.1145/3510835 _16_], [https://arxiv.org/abs/2006.08198 _17_]],
-self-supervised learning \[[https://openreview.net/forum?id=F8whUO8HNbP _18_], [https://arxiv.org/abs/2007.06965 _19_]],
-automated machine learning (AutoML) \[[https://arxiv.org/abs/1912.10917 _20_]],
+3. We are broadly interested in LLM \[[https://arxiv.org/abs/2305.12281 _13_], [https://openreview.net/forum?id=6mLjDwYte5 _14_], [https://arxiv.org/abs/2410.04472 _15_]],
+computer vision \[[https://arxiv.org/abs/2404.07448 _16_], [https://arxiv.org/abs/2112.09747 _17_]],
+model efficiency \[[https://dl.acm.org/doi/10.1145/3510835 _18_], [https://arxiv.org/abs/2006.08198 _19_]],
+self-supervised learning \[[https://openreview.net/forum?id=F8whUO8HNbP _20_], [https://arxiv.org/abs/2007.06965 _21_]],
+automated machine learning (AutoML) \[[https://arxiv.org/abs/1912.10917 _22_]],
 etc.
 
 
@@ -94,6 +94,10 @@ For Ph.D. applicants, please apply to the [https://www.sfu.ca/fas/study/future-g
 
 
 # \href{https://www.siam.org/conferences-events/siam-conferences/uq26/}{SIAM Conference on Uncertainty Quantification (UQ26)} \hfill March 2026
+
+\[5/2026\] Dr. Chen is honored to be selcted by the [https://2026.ijcai.org/early-career-spotlights/ IJCAI-ECAI Early Career Spotlights].
+
+\[4/2026\] 1 paper accepted in ICML 2026.
 
 \[3/2026\]
 - Dr. Chen will serve as an [https://jmlr.org/tmlr/editorial-board.html active editor] for [https://jmlr.org/tmlr/index.html TMLR].
@@ -145,7 +149,7 @@ For Ph.D. applicants, please apply to the [https://www.sfu.ca/fas/study/future-g
 
 \[12/2025\]\n
 # aaai nfh acceptance rate: 47/112
-- Dr. Chen is selcted by the [https://aaai.org/conference/aaai/aaai-25/new-faculty-highlights-program/ AAAI-2025 New Faculty Highlights program].
+- Dr. Chen is honored to be selcted by the [https://aaai.org/conference/aaai/aaai-25/new-faculty-highlights-program/ AAAI-2025 New Faculty Highlights program].
 - Our "[https://fm-science.github.io/ Foundation Models for Science]" workshop @ NeurIPS 2024 was a success! See [https://neurips.cc/virtual/2024/workshop/84714 video recordings] and [https://openreview.net/group?id=NeurIPS.cc/2024/Workshop/FM4Science accepted papers].
 
 \[11/2024\]

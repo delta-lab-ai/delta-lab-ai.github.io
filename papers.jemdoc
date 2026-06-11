@@ -25,6 +25,10 @@ ACM Transactions on Design Automation of Embedded Systems (TODAES), 2021. \[[htt
 
 # \[[ Paper]\] \[[ Code]\]
 
+- J. Song\*, X. Liu, W. Yang, *W. Chen*, M. Feng, X. Zhu, J. Gao\n
+"MultiBreak: A Scalable and Diverse Multi-turn Jailbreak Benchmark for Evaluating LLM Safety"\n
+ICML 2026. \[[https://arxiv.org/abs/2605.01687 Paper]\]
+
 - Y. Liu\*\#, J. Song\*\#, M. de Chanlatte, R. Chowdhury, R. Desai, *W. Chen*, D. Martin, M. Mahoney\n
 "FluidGaussian: Propagating Simulation-Based Uncertainty Toward Functionally-Intelligent 3D Reconstruction"\n
 CVPR 2026. \[[https://arxiv.org/abs/2603.21356 Paper]\] \[[https://autumnyq.github.io/FluidGaussian/ Website]\]
@@ -149,6 +153,10 @@ IEEE International Conference on Computer Vision (ICCV), 2019. \[[https://arxiv.
 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2019. (Oral) \[[https://arxiv.org/abs/1905.06368 Paper]\] \[[https://github.com/VITA-Group/GLNet Code]\]
 
 == Preprint
+
+- J. Lu\*, S. Kong, R. Stehling, K. Yang, Z. Wang, W. Sun, *W. Chen*\n
+"Lean Refactor: Multi-Objective Controllable Proof Optimization via Agentic Strategy Search"\n
+/arXiv, 2605.20244/ \[[https://arxiv.org/abs/2605.20244 Paper]\]
 
 - Y. Liu\*, J. Song\*, M. Savva, *W. Chen*\n
 "WildSmoke: Ready-to-Use Dynamic 3D Smoke Assets from a Single Video in the Wild"\n
