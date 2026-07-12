@@ -14,6 +14,23 @@ Visiting Researcher, Microsoft Research
 # {}{img_left}{images/wuyang_chen.jpg}{Wuyang Chen SFU}{173px}{225px}{images/wuyang_chen.jpg}
 
 
+~~~ Advertisement
+
+*{{<font color="Red">Please try out our toolkits if you are working on Lean/Mathlib!</font>}}*
+
+1. Lean Finder: A Semantic Search Engine For Mathlib
+
+- Web Service: [https://leanfinder.github.io/ _https://leanfinder.github.io_]
+
+- API: [https://delta-lab-ai-lean-finder.hf.space/api-docs _Link_]
+
+2. Lean Refactor Arena: Can agents make Lean proofs {{<font color="Red">better</font>}}, not just correct?
+
+- Leaderboard: [http://lean-refactor-arena.github.io/ _http://lean-refactor-arena.github.io_]
+
+~~~
+
+
 
 # ~~~ Advertisement
 #
