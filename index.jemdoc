@@ -5,7 +5,7 @@
 == "DeLTA": _D_esigning D_e_ep _L_earning in Principle: From _T_heory to _A_pplications\n
 PI: Wuyang Chen\n
 Assistant Professor, [https://www.sfu.ca/computing.html The School of Computing Science], [https://www.sfu.ca/ Simon Fraser University]\n
-Visiting Researcher, Microsoft Research
+# Visiting Researcher, Microsoft Research
 
 ~~
 {}{img_left}{images/sfu2.jpeg}{SFU}{640px}{213px}{images/sfu2.jpeg}
@@ -124,6 +124,8 @@ For Ph.D. applicants, please apply to the [https://www.sfu.ca/fas/study/future-g
 
 == News
 
+\[7/2026\] Our NeurIPS 2026 workshop proposal, "[https://vericodegen.github.io/ AI for Verifiable Coding]," is accepted.
+Please consider [https://vericodegen.github.io/index.html\#cfp submitting] your great work to our workshop ([https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/VERICODGEN OpenReview])!
 
 \[6/2026\] Our Lean Refactor paper ([https://arxiv.org/abs/2605.20244 arXiv:2605.20244]) is awarded spotlight at the [https://ai4math2026.github.io/ AI4Math workshop in ICML 2026].
 
