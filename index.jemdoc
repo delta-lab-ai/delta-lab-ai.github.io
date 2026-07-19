@@ -20,14 +20,14 @@ Visiting Researcher, Microsoft Research
 
 1. Lean Finder: A Semantic Search Engine For Mathlib
 
-- Web Service: [https://leanfinder.github.io/ _https://leanfinder.github.io_]
+- Web Service: [https://leanfinder.github.io/ _https:\/\/leanfinder.github.io_]
 
 - API: [https://delta-lab-ai-lean-finder.hf.space/api-docs _Link_]
 
 2. Lean Refactor Arena: Can agents make Lean proofs {{<font color="Red">better</font>}}, not just correct?
 
 # - Leaderboard: [https://lean-refactor-arena.github.io/ _https://lean-refactor-arena.github.io_]
-- Leaderboard: [https://leanrefactor.github.io/ _https://leanrefactor.github.io/_]
+- Leaderboard: [https://leanrefactor.github.io/ _https:\/\/leanrefactor.github.io_]
 
 ~~~
 
