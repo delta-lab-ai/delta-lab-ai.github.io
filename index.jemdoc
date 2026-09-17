@@ -18,15 +18,21 @@ Assistant Professor, [https://www.sfu.ca/computing.html The School of Computing 
 
 ~~~ Advertisement
 
-*{{<font color="Red">Call for Papers!</font>}}*
+*{{<font color="Red">Call for Submissions!</font>}}*
 Are you working on verifiable code generation?
 
-Please submit your work to our workshop "AI for Verifiable Coding" at NeurIPS 2026 ([https://vericodegen.github.io/ _link_]) on Dec. 12 or 13, at Atlanta, GA.
+# Please submit your work to
+Please join and submit your agents or LLM provers to the *Lean Refactor Competition* ([https://leanrefactor.github.io/ _link_]) associated with
+our workshop *"AI for Verifiable Coding" at NeurIPS 2026* ([https://vericodegen.github.io/ _link_]) on Dec. 12 or 13, at Atlanta, GA.
 
-- Abstract Deadline: August 27, 2026 AOE
-- Paper Submission Deadline: August 29, 2026 AOE
-- OpenReview: [https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/VERICODGEN _link_]
+# - Abstract Deadline: August 27, 2026 AOE
+# - Paper Submission Deadline: August 29, 2026 AOE
+# - OpenReview: [https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/VERICODGEN _link_]
 # - *{{<font color="Red">Sponsorship</font>}}*: 1) Best Paper: 1 full CVPR registration; 2) Runner-up: 1 CVPR workshop registration.
+
+- Warm-up: Now – Oct. 30, 2026
+- Full benchmark (final evaluation): *November 1 - 8*, 2026
+- Decision: November 22, 2026
 
 ~~~
 
@@ -36,14 +42,14 @@ Please submit your work to our workshop "AI for Verifiable Coding" at NeurIPS 20
 *{{<font color="Red">Call for Participants!</font>}}*
 Are you interested in verifiable PDE analysis?
 
-We are hosting a specialized workshop on "Frontier of PDE Formalization and Analysis with AI” at SLMath, Berkeley, on Dec. 7 and 8.
+We are hosting a specialized workshop on "Frontier of PDE Formalization and Analysis with AI” at SLMath, Berkeley, on *Dec. 7 and 8*.
 
 Website: [https://www.slmath.org/workshops/1207 _https:\/\/www.slmath.org\/workshops\/1207_]
 
 This workshop is inspired by recent momentum in formal methods for PDE analysis.
 The goal of this workshop is to bring together PDE analysts, Lean\/Mathlib developers, and AI4Math researchers, to produce a clear and community-endorsed roadmap for the formalization and AI-assisted analysis of PDEs.
 
-Please register before Oct. 15 to be consdered a travel support!
+Please *register before Oct. 15* to be consdered a travel support!
 ~~~
 
 
