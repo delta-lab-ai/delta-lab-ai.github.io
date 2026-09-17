@@ -14,6 +14,39 @@ Assistant Professor, [https://www.sfu.ca/computing.html The School of Computing 
 # {}{img_left}{images/wuyang_chen.jpg}{Wuyang Chen SFU}{173px}{225px}{images/wuyang_chen.jpg}
 
 
+
+
+~~~ Advertisement
+
+*{{<font color="Red">Call for Papers!</font>}}*
+Are you working on verifiable code generation?
+
+Please submit your work to our workshop "AI for Verifiable Coding" at NeurIPS 2026 ([https://vericodegen.github.io/ _link_]) on Dec. 12 or 13, at Atlanta, GA.
+
+- Abstract Deadline: August 27, 2026 AOE
+- Paper Submission Deadline: August 29, 2026 AOE
+- OpenReview: [https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/VERICODGEN _link_]
+# - *{{<font color="Red">Sponsorship</font>}}*: 1) Best Paper: 1 full CVPR registration; 2) Runner-up: 1 CVPR workshop registration.
+
+~~~
+
+
+~~~ Advertisement
+
+*{{<font color="Red">Call for Participants!</font>}}*
+Are you interested in verifiable PDE analysis?
+
+We are hosting a specialized workshop on "Frontier of PDE Formalization and Analysis with AI” at SLMath, Berkeley, on Dec. 7 and 8.
+
+Website: [https://www.slmath.org/workshops/1207 _https:\/\/www.slmath.org\/workshops\/1207_]
+
+This workshop is inspired by recent momentum in formal methods for PDE analysis.
+The goal of this workshop is to bring together PDE analysts, Lean\/Mathlib developers, and AI4Math researchers, to produce a clear and community-endorsed roadmap for the formalization and AI-assisted analysis of PDEs.
+
+Please register before Oct. 15 to be consdered a travel support!
+~~~
+
+
 ~~~ Advertisement
 
 *{{<font color="Red">Please try out our toolkits if you are working on Lean/Mathlib!</font>}}*
@@ -31,20 +64,6 @@ Assistant Professor, [https://www.sfu.ca/computing.html The School of Computing 
 
 ~~~
 
-
-~~~ Advertisement
-
-*{{<font color="Red">Call for Papers!</font>}}*
-Are you working on verifiable code generation?
-
-Please submit your work to our workshop "AI for Verifiable Coding" at NeurIPS 2026 ([https://vericodegen.github.io/ _link_]) on Dec. 12 or 13, at Atlanta, GA.
-
-- Abstract Deadline: August 27, 2026 AOE
-- Paper Submission Deadline: August 29, 2026 AOE
-- OpenReview: [https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/VERICODGEN _link_]
-# - *{{<font color="Red">Sponsorship</font>}}*: 1) Best Paper: 1 full CVPR registration; 2) Runner-up: 1 CVPR workshop registration.
-
-~~~
 
 
 # ~~~ Advertisement
@@ -124,12 +143,19 @@ For Ph.D. applicants, please apply to the [https://www.sfu.ca/fas/study/future-g
 
 == News
 
+# Our workshop: sponsors, competition, donation to LeanFRO
+
+# SLMath workshop
+
+# https://www.legendre-leaderboard.com/
+
+
 \[7/2026\] Our NeurIPS 2026 workshop proposal, "[https://vericodegen.github.io/ AI for Verifiable Coding]," is accepted.
 Please consider [https://vericodegen.github.io/index.html\#cfp submitting] your great work to our workshop ([https://openreview.net/group?id=NeurIPS.cc/2026/Workshop/VERICODGEN OpenReview])!
 
 \[6/2026\] Our Lean Refactor paper ([https://arxiv.org/abs/2605.20244 arXiv:2605.20244]) is awarded spotlight at the [https://ai4math2026.github.io/ AI4Math workshop in ICML 2026].
 
-\[5/2026\] Dr. Chen is honored to be selcted by the [https://2026.ijcai.org/early-career-spotlights/ IJCAI-ECAI Early Career Spotlights].
+\[5/2026\] Dr. Chen is honored to be selcted by the [https://2026.ijcai.org/early-career-spotlights/ IJCAI-ECAI Early Career Spotlights]. [drive_link photos]
 
 \[4/2026\] 1 paper accepted in ICML 2026.
 
